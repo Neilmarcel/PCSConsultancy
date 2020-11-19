@@ -1,12 +1,20 @@
 package controller;
 
 import java.io.*;
+import java.sql.SQLException;
 import model.Employee;
+import java.util.List;
+import dao.IEmployeeDao;
+import daoImpl.EmployeeDaoImpl;
+import java.util.Iterator;
 
 public class EmployeeController {
-
-	
-	public Employee addEmployee() {
+    
+	IEmployeeDao empDao=null;
+	public EmployeeController() throws ClassNotFoundException, SQLException {
+		empDao=new EmployeeDaoImpl();
+	}
+	public void addEmployee() {
 		Employee emp=new Employee();
 		try {
 			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
@@ -29,10 +37,17 @@ public class EmployeeController {
 			else {
 				emp.setActive("Deactive");
 			}
+			//Calling dao method for insert record
 		}
 		catch(IOException ex) {
 			System.out.println(ex.getMessage());
 		}
-		return emp;
+	}
+	public void getAllEmployees() {
+		List<Employee> allEmpList=empDao.getAllEmployees();
+		//Iterator itr=allEmpList.iterator();
+		for(Employee emp:allEmpList) {
+			System.out.println(emp);
+		}
 	}
 }

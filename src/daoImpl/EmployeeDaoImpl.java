@@ -1,6 +1,8 @@
 package daoImpl;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import config.JDBCConnection;
 import dao.IEmployeeDao;
@@ -14,13 +16,15 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 		conn=JDBCConnection.getDBConnection();
 	}
 	@Override
-	public void getAllEmployees() {
+	public List<Employee> getAllEmployees() {
+		List<Employee> allEmpList=new ArrayList<Employee>();
 		try{
 			Statement stmt=conn.createStatement();
 			ResultSet rst=stmt.executeQuery("select * from Employee");
 			if(rst!=null) {
-				Employee emp=new Employee();
+				Employee emp=null;
 				while(rst.next()) {
+					emp=new Employee();
 					emp.setEmpId(rst.getInt(1));
 					emp.setFirstName(rst.getString(2));
 					emp.setLastName(rst.getString(3));
@@ -29,13 +33,14 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 					emp.setRole(rst.getString(6));
 					emp.setGender(rst.getString(7));
 					emp.setActive(rst.getString(8));
-					System.out.println(emp);
+					allEmpList.add(emp);
 				}
 			}
 		}
 		catch(SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
+		return allEmpList;
 	}
 
 	@Override
@@ -61,7 +66,6 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 		catch(SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
-		
 	}
 
 	@Override
