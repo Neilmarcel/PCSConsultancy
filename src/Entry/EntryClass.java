@@ -15,8 +15,8 @@ public class EntryClass {
 		}
 	}
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		//EntryClass entr=new EntryClass();
-		//entr.testConnection();
+		EntryClass entr=new EntryClass();
+		entr.testConnection();
 		EmployeeController empController=new EmployeeController();
 		System.out.println("Enter the details of Employees: ");
 		empController.addEmployee();
