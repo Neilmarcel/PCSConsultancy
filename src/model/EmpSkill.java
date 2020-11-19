@@ -9,6 +9,7 @@ public class EmpSkill {
 	public EmpSkill() {
 			
 	}
+	//parameterized constructor method
 	public EmpSkill(int empId, int skillId, int expYear) {
 		super();
 		this.empId = empId;

@@ -6,7 +6,6 @@ import model.Employee;
 import java.util.List;
 import dao.IEmployeeDao;
 import daoImpl.EmployeeDaoImpl;
-import java.util.Iterator;
 
 public class EmployeeController {
     

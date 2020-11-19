@@ -10,7 +10,6 @@ public class Skill {
 			
 		}
 		//parameterized constructor method
-		
 		public Skill(String skillName, String skillDescription) {
 			super();
 			SkillName = skillName;

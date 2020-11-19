@@ -14,8 +14,9 @@ public class Job {
 		
 	}
 	//parameterized constructor method
-	public void setJobId(int jobId) {
-		JobId = jobId;
+	
+	public String getJobTitle() {
+		return JobTitle;
 	}
 	public Job(String jobTitle, String jobDescription, String companyName, String location, String role,
 			String keySkill, String activate) {
@@ -27,9 +28,6 @@ public class Job {
 		this.role = role;
 		KeySkill = keySkill;
 		Activate = activate;
-	}
-	public String getJobTitle() {
-		return JobTitle;
 	}
 	public void setJobTitle(String jobTitle) {
 		JobTitle = jobTitle;
