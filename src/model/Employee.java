@@ -3,7 +3,7 @@ package model;
 public class Employee {
 
 	private int empId;
-	private  String firstName;
+	private String firstName;
 	private String lastName;
 	private String userId;
 	private String password;

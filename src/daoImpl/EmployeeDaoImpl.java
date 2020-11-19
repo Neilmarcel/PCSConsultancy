@@ -47,7 +47,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	public void addEmployee(Employee emp){
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("insert into Employee values(?,?,?,?,?,?,?)");
+			PreparedStatement pst=conn.prepareStatement("insert into Employee(firstName, lastName, userId, password, role, gender) values(?,?,?,?,?,?,?)");
 			pst.setString(1, emp.getFirstName());
 			pst.setString(2, emp.getLastName());
 			pst.setString(3, emp.getUserId());
