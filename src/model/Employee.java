@@ -3,16 +3,18 @@ package model;
 public class Employee {
 
 	private int empId;
-	private String firstName;
+	private  String firstName;
 	private String lastName;
 	private String userId;
 	private String password;
 	private String role;
 	private String gender;
 	private String active;
+	//default constructor methods
 	public Employee() {
 		
 	}
+	//parameterized constructor method
 	public Employee(String firstName, String lastName, String userId, String password, String role, String gender) {
 		super();
 		this.firstName = firstName;
@@ -22,6 +24,7 @@ public class Employee {
 		this.role = role;
 		this.gender = gender;
 	}
+	//All setter and getter methods
 	public int getEmpId() {
 		return empId;
 	}
@@ -58,21 +61,23 @@ public class Employee {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 	public String getGender() {
 		return gender;
 	}
-	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
 	public String getActive() {
 		return active;
 	}
-	
 	public void setActive(String active) {
 		this.active = active;
 	}
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", userId=" + userId
+				+ ", password=" + password + ", role=" + role + ", gender=" + gender + ", active=" + active + "]";
+	}
+	
 	
 }

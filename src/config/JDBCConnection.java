@@ -1,15 +1,18 @@
 package config;
+
 import java.sql.*;
 
 public class JDBCConnection {
 
 		public static Connection getDBConnection() throws ClassNotFoundException, SQLException{
-			String url="jdbc:sqlserver://MSSQLSERVER01;database=PCSDB";
-			String username="sa";
-			String password="niit@123";
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			//DataSourse information
+			String url="jdbc:mysql://localhost:3306//pcsdb";
+			String username="root";
+			String password="nmj@1234567";
+			//Loading Driver
+			Class.forName("com.mysql.jdbc.Driver");
+			//Creating connection object
 			Connection conn=DriverManager.getConnection(url,username,password);
 			return conn;
 		}
 }
-

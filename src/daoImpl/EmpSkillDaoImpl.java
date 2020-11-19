@@ -1,6 +1,6 @@
 package daoImpl;
 
-public class EmpJobDao {
+public class EmpSkillDaoImpl {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
