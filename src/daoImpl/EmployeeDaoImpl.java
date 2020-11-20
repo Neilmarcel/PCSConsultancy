@@ -3,6 +3,7 @@ package daoImpl;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import config.JDBCConnection;
 import dao.IEmployeeDao;
 import model.Employee;
@@ -16,7 +17,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	}
 	@Override
 	public List<Employee> getAllEmployees() {
-		List<Employee> allEmpList=new ArrayList<Employee>();
+		List<Employee> allEmpList=new ArrayList<Employee>(); //1
 		try{
 			Statement stmt=conn.createStatement();
 			ResultSet rst=stmt.executeQuery("select * from Employee");
@@ -32,7 +33,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 					emp.setRole(rst.getString(6));
 					emp.setGender(rst.getString(7));
 					emp.setActive(rst.getString(8));
-					allEmpList.add(emp);
+					allEmpList.add(emp); //2
 				}
 			}
 		}
@@ -46,7 +47,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	public void addEmployee(Employee emp){
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("insert into Employee(firstName, lastName, userId, password, role, gender) values(?,?,?,?,?,?,?)");
+			PreparedStatement pst=conn.prepareStatement("insert into Employee(FirstName, LastName,UserId,Password,Role,Gender,Active) values(?,?,?,?,?,?,?)");
 			pst.setString(1, emp.getFirstName());
 			pst.setString(2, emp.getLastName());
 			pst.setString(3, emp.getUserId());
@@ -65,6 +66,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 		catch(SQLException ex) {
 			System.out.println(ex.getMessage());
 		}
+		
 	}
 
 	@Override
