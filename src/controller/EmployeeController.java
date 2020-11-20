@@ -54,4 +54,55 @@ public class EmployeeController {
 			System.out.println(emp);
 		}
 	}
-}
+	public void getEmployeeById() {
+		try {
+			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			int id;
+			System.out.println("Enter EmployeeId whose record you want to access:");
+			id=Integer.parseInt(reader.readLine());
+			Employee emp=empDao.getEmployeeById(id);
+			System.out.println(emp);
+		}
+		catch(IOException ex) {
+			System.out.println(ex.getMessage());
+		}
+	}
+		public void updateEmployee() {
+			try {
+				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+				int id;
+				String password, confirmpassword;
+				System.out.println("Enter EmployeeId whose record you want to update:");
+				id=Integer.parseInt(reader.readLine());
+				Employee emp=empDao.getEmployeeById(id);
+				System.out.println("Enter your new password:");
+				password=reader.readLine();
+				System.out.println("re-enter same password to confirm:");
+				confirmpassword=reader.readLine();
+				if(password.contentEquals(confirmpassword)) {
+					emp.setPassword(password);
+					empDao.updateEmployee(emp);
+				}
+				else {
+					System.out.println("Sorry! you have entered different password");
+				}
+				System.out.println(emp);
+			}
+			catch(IOException ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+		public void DeactivateEmployee() {
+			try {
+				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+				int id;
+				System.out.println("Enter EmployeeId whose record you want to update:");
+				id=Integer.parseInt(reader.readLine());
+				Employee emp=empDao.getEmployeeById(id);
+				System.out.println(emp);
+			}
+			catch(IOException ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+	}

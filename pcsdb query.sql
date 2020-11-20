@@ -5,18 +5,18 @@ CREATE TABLE Employee (
     FirstName NVARCHAR(50) NOT NULL,
     LastName NVARCHAR(50) NOT NULL,
     UserId NVARCHAR(256) NOT NULL,
-    Password VARCHAR(10) NOT NULL,
-    Gender NCHAR(1) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    Gender NCHAR(20) NOT NULL,
     Role NVARCHAR(50) NOT NULL,
-    Active NCHAR(1) NOT NULL,
-    PRIMARY KEY(EmployeeId)
+    Active NCHAR(10) NOT NULL,
+    PRIMARY KEY(EmployeeIemployeed)
 );
 
 CREATE TABLE Skill (
     SkillId INT NOT NULL AUTO_INCREMENT,
     SkillName NVARCHAR(50) NOT NULL,
     SkillDescription NVARCHAR(400) NOT NULL,
-    Active NCHAR(1) NOT NULL,
+    Active NCHAR(10) NOT NULL,
     PRIMARY KEY(SkillId)
 );
 
