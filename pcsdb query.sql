@@ -1,19 +1,19 @@
 create database pcsdb;
 use pcsdb;
 CREATE TABLE Employee (
-    EmployeeId INT NOT NULL AUTO_INCREMENT,
+    EmployeeId INT AUTO_INCREMENT,
     FirstName NVARCHAR(50) NOT NULL,
     LastName NVARCHAR(50) NOT NULL,
     UserId NVARCHAR(256) NOT NULL,
-    Password VARCHAR(20) NOT NULL,
-    Gender NCHAR(20) NOT NULL,
+    Password NVARCHAR(30) NOT NULL,
     Role NVARCHAR(50) NOT NULL,
+    Gender NCHAR(20) NOT NULL,
     Active NCHAR(10) NOT NULL,
-    PRIMARY KEY(EmployeeIemployeed)
+    PRIMARY KEY(EmployeeId)
 );
 
 CREATE TABLE Skill (
-    SkillId INT NOT NULL AUTO_INCREMENT,
+    SkillId INT AUTO_INCREMENT,
     SkillName NVARCHAR(50) NOT NULL,
     SkillDescription NVARCHAR(400) NOT NULL,
     Active NCHAR(10) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE Skill (
 );
 
 CREATE TABLE Job (
-    JobId INT NOT NULL AUTO_INCREMENT,
+    JobId INT AUTO_INCREMENT,
     JobTitle NVARCHAR(50) NOT NULL,
     JobDescription NVARCHAR(400) NOT NULL,
     CompanyName NVARCHAR(50) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE Job (
 );
                  
 CREATE TABLE EmpSkill (
-    ESId INT NOT NULL AUTO_INCREMENT,
+    ESId INT AUTO_INCREMENT,
     EmployeeId INT NOT NULL,
     CONSTRAINT fk1 FOREIGN KEY (EmployeeId)
         REFERENCES Employee (EmployeeId),
@@ -44,7 +44,7 @@ CREATE TABLE EmpSkill (
     PRIMARY KEY (ESId)
 );
 CREATE TABLE EmpJob (
-    EJId INT NOT NULL AUTO_INCREMENT,
+    EJId INT AUTO_INCREMENT,
     EmployeeId INT NOT NULL,
     CONSTRAINT EmployeeId FOREIGN KEY (EmployeeId)
         REFERENCES Employee (EmployeeId),

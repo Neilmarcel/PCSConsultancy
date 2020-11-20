@@ -47,13 +47,13 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	public void addEmployee(Employee emp){
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("insert into Employee(FirstName, LastName,UserId,Password,Role,Gender,Active) values(?,?,?,?,?,?,?)");
+			PreparedStatement pst=conn.prepareStatement("insert into Employee(FirstName, LastName,UserId,Password,Gender,Role,Active) values(?,?,?,?,?,?,?)");
 			pst.setString(1, emp.getFirstName());
 			pst.setString(2, emp.getLastName());
 			pst.setString(3, emp.getUserId());
 			pst.setString(4, emp.getPassword());
-			pst.setString(5, emp.getRole());
-			pst.setString(6, emp.getGender());
+			pst.setString(5, emp.getGender());
+			pst.setString(6, emp.getRole());
 			pst.setString(7, emp.getActive());
 			int i=pst.executeUpdate();
 			if(i==1){
@@ -73,7 +73,7 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	public Employee getEmployeeById(int id) {
 		Employee emp=new Employee(); //1
 		try{
-			PreparedStatement pst=conn.prepareStatement("select * from Employee where empId=?");
+			PreparedStatement pst=conn.prepareStatement("select * from Employee where EmployeeId=?");
 			pst.setInt(1,id);
 			ResultSet rst=pst.executeQuery();
 			if(rst!=null) {
@@ -100,15 +100,15 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	public void updateEmployee(Employee emp) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set password=? where EmpId=? ");
-			pst.setInt(1, emp.getEmpId());
-			pst.setString(2, emp.getPassword());
+			PreparedStatement pst=conn.prepareStatement("update Employee set password=? where EmployeeId=? ");
+			pst.setString(1, emp.getPassword());
+			pst.setInt(2, emp.getEmpId());
 			int i=pst.executeUpdate();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				System.out.println("1 record updated...");
 			}
 			else {
-				System.out.println("insertion failed...");
+				System.out.println("update failed...");
 			}
 		}
 		catch(SQLException ex) {
@@ -119,18 +119,18 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 		
 
 	@Override
-	public void deactivateEmployee(int id) {
+	public void deactivateEmployee(Employee emp) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where EmpId=? ");
-			pst.setInt(1, id);
-			pst.setString(2, "Deactive");
+			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where EmployeeId=? ");
+			pst.setString(1, "Deactive");
+			pst.setInt(2, emp.getEmpId());
 			int i=pst.executeUpdate();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				System.out.println("Employee deactivated...");
 			}
 			else {
-				System.out.println("insertion failed...");
+				System.out.println("updation failed...");
 			}
 		}
 		catch(SQLException ex) {
@@ -143,15 +143,14 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 	public void deleteEmployee(int id) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("delete Employee where EmpId=? ");
+			PreparedStatement pst=conn.prepareStatement("delete from Employee where EmployeeId=? ");
 			pst.setInt(1, id);
-			pst.setString(2, pst.getPassword());
 			int i=pst.executeUpdate();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				System.out.println("1 record deleted...");
 			}
 			else {
-				System.out.println("insertion failed...");
+				System.out.println("deletion failed...");
 			}
 		}
 		catch(SQLException ex) {

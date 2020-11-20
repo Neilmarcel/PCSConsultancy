@@ -2,7 +2,7 @@ package model;
 
 public class Employee {
 
-	private int empId;
+	private int EmployeeId;
 	private String firstName;
 	private String lastName;
 	private String userId;
@@ -26,10 +26,10 @@ public class Employee {
 	}
 	//All setter and getter methods
 	public int getEmpId() {
-		return empId;
+		return EmployeeId;
 	}
 	public void setEmpId(int empId) {
-		this.empId = empId;
+		this.EmployeeId = empId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -75,7 +75,7 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", userId=" + userId
+		return "Employee [empId=" + EmployeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", userId=" + userId
 				+ ", password=" + password + ", role=" + role + ", gender=" + gender + ", active=" + active + "]";
 	}
 	

@@ -47,4 +47,5 @@ public class SkillController {
 			System.out.println(ski);
 		}
 	}
+	
 }
