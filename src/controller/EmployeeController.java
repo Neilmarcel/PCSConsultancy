@@ -2,9 +2,7 @@ package controller;
 
 import java.io.*;
 import java.sql.*;
-import java.util.Iterator;
 import java.util.List;
-
 import dao.IEmployeeDao;
 import daoImpl.EmployeeDaoImpl;
 import model.Employee;
@@ -57,7 +55,8 @@ public class EmployeeController {
 	public void getEmployeeById() {
 		try {
 			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			int id;System.out.println("Enter EmployeeId whose record you want to access:");
+			int id;
+			System.out.println("Enter EmployeeId whose record you want to access:");
 			id=Integer.parseInt(reader.readLine());
 			Employee emp=empDao.getEmployeeById(id);
 			System.out.println(emp);

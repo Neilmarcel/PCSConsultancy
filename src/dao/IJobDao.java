@@ -1,5 +1,5 @@
 package dao;
-import java.util.Job;
+import java.util.List;
 import model.Job;
 
 public interface IJobDao {
@@ -8,6 +8,6 @@ public interface IJobDao {
 	void addJob(Job jb);
 	Job getJobById(int id);
 	void updateJob(Job jb);
-	void deactivateJob(int id);
+	void deactivateJob(Job jb);
 	void deleteJob(int id);
 }

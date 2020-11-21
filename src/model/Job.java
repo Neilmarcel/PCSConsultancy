@@ -8,18 +8,18 @@ public class Job {
 	private String Location;
 	private String role;
 	private String KeySkill;
+	private String Salary;
 	private String Activate;
 	//default constructor methods
 	public Job() {
 		
 	}
 	//parameterized constructor method
-	
-	public String getJobTitle() {
-		return JobTitle;
+	public void setJobTitle(String jobTitle) {
+		JobTitle = jobTitle;
 	}
 	public Job(String jobTitle, String jobDescription, String companyName, String location, String role,
-			String keySkill, String activate) {
+			String keySkill, String salary) {
 		super();
 		JobTitle = jobTitle;
 		JobDescription = jobDescription;
@@ -27,10 +27,13 @@ public class Job {
 		Location = location;
 		this.role = role;
 		KeySkill = keySkill;
-		Activate = activate;
+		Salary = salary;
 	}
-	public void setJobTitle(String jobTitle) {
-		JobTitle = jobTitle;
+	public int getJobId() {
+		return JobId;
+	}
+	public void setJobId(int jobId) {
+		JobId = jobId;
 	}
 	public String getJobDescription() {
 		return JobDescription;
@@ -62,17 +65,25 @@ public class Job {
 	public void setKeySkill(String keySkill) {
 		KeySkill = keySkill;
 	}
+	public String getSalary() {
+		return Salary;
+	}
+	public void setSalary(String salary) {
+		Salary = salary;
+	}
 	public String getActivate() {
 		return Activate;
 	}
 	public void setActivate(String activate) {
 		Activate = activate;
 	}
+	public String getJobTitle() {
+		return JobTitle;
+	}
 	@Override
 	public String toString() {
 		return "Job [JobId=" + JobId + ", JobTitle=" + JobTitle + ", JobDescription=" + JobDescription
 				+ ", CompanyName=" + CompanyName + ", Location=" + Location + ", role=" + role + ", KeySkill="
-				+ KeySkill + ", Activate=" + Activate + "]";
+				+ KeySkill + ", Salary=" + Salary + ", Activate=" + Activate + "]";
 	}
-	
 }

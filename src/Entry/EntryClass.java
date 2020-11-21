@@ -1,7 +1,6 @@
 package Entry;
 import java.util.Scanner;
 import java.sql.SQLException;
-
 import config.JDBCConnection;
 import controller.EmployeeController;
 

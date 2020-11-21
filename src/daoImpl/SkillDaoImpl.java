@@ -63,27 +63,87 @@ public class SkillDaoImpl implements ISkillDao{
 
 	@Override
 	public Skill getSkillById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Skill emp=new Skill(); //1
+		try{
+			PreparedStatement pst=conn.prepareStatement("select * from Skill where SkillId=?");
+			pst.setInt(1,id);
+			ResultSet rst=pst.executeQuery();
+			if(rst!=null) {
+				if(rst.next()) {
+					emp=new Skill();
+					emp.setSkillId(rst.getInt(1));
+					emp.setSkillName(rst.getString(2));
+					emp.setSkillDescription(rst.getString(3));
+					emp.setActive(rst.getString(4));
+				}
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		return emp;
 	}
 
 	@Override
 	public void updateSkill(Skill ski) {
-		// TODO Auto-generated method stub
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("update Skill set SkillName=?,SkillDescription=? where SkillId=? ");
+			pst.setString(1, ski.getSkillName());
+			pst.setString(2, ski.getSkillDescription());
+			pst.setInt(3, ski.getSkillId());
+			int i=pst.executeUpdate();
+			if(i==1){
+				System.out.println("1 record updated...");
+			}
+			else {
+				System.out.println("update failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
 		
 	}
+		
 
 	@Override
-	public void deactivateSkill(int id) {
-		// TODO Auto-generated method stub
+	public void deactivateSkill(Skill ski) {
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("update Skill set Active=? where SkillId=? ");
+			pst.setString(1, "Deactive");
+			pst.setInt(2, ski.getSkillId());
+			int i=pst.executeUpdate();
+			if(i==1){
+				System.out.println("Skill deactivated...");
+			}
+			else {
+				System.out.println("updation failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
 		
 	}
 
 	@Override
 	public void deleteSkill(int id) {
-		// TODO Auto-generated method stub
-		
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("delete from Skill where SkillId=? ");
+			pst.setInt(1, id);
+			int i=pst.executeUpdate();
+			if(i==1){
+				System.out.println("1 record deleted...");
+			}
+			else {
+				System.out.println("deletion failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
-
-	
 }

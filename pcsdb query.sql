@@ -51,7 +51,12 @@ CREATE TABLE EmpJob (
     JobId INT NOT NULL,
     CONSTRAINT JobId FOREIGN KEY (JobId)
         REFERENCES Job(JobId),
-    Recruited BIT NOT NULL,
+    Recruited NVARCHAR(20) NOT NULL,
     PRIMARY KEY(EJId)
 );
-Select * from employee
+
+Select * from employee;
+
+
+    
+    
