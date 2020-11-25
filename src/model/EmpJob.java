@@ -4,13 +4,13 @@ public class EmpJob {
 	private int EJId;
 	private int EmpId;
     private int JobId;
-    private int Recruited;
+    private String Recruited;
   //default constructor methods
     public EmpJob() {
     	
     }
   //parameterized constructor method
-	public EmpJob(int empId, int jobId, int recruited) {
+	public EmpJob(int empId, int jobId, String recruited) {
 		super();
 		EmpId = empId;
 		JobId = jobId;
@@ -34,10 +34,10 @@ public class EmpJob {
 	public void setJobId(int jobId) {
 		JobId = jobId;
 	}
-	public int getRecruited() {
+	public String getRecruited() {
 		return Recruited;
 	}
-	public void setRecruited(int recruited) {
+	public void setRecruited(String recruited) {
 		Recruited = recruited;
 	}
 	@Override

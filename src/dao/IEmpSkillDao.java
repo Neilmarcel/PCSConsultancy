@@ -1,6 +1,7 @@
 package dao;
 import java.util.List;
 import model.EmpSkill;
+import model.Employee;
 
 public interface IEmpSkillDao {
 

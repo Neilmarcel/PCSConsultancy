@@ -43,7 +43,7 @@ public class SkillDaoImpl implements ISkillDao{
 	public void addSkill(Skill ski){
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("insert into Employee(SkillName,SkillDescription,Active) values(?,?,?)");
+			PreparedStatement pst=conn.prepareStatement("insert into Skill(SkillName,SkillDescription,Active) values(?,?,?)");
 			pst.setString(1, ski.getSkillName());
 			pst.setString(2, ski.getSkillDescription());
 			pst.setString(3, ski.getActive());

@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.List;
+
 import model.Employee;
 
 public interface IEmployeeDao {
@@ -11,4 +12,5 @@ public interface IEmployeeDao {
 	void updateEmployee(Employee emp);
 	void deactivateEmployee(Employee emp);
 	void deleteEmployee(int id);
+	Employee checkLogin(String userId, String password);
 }

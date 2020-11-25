@@ -1,19 +1,20 @@
 package view;
 
 import java.awt.*;
-import java.awt.event.*;
+
 import javax.swing.*;
 
-public class RegistrationFrame extends JFrame{
+public class SetActivateFrame extends JFrame{
 
 	Container container=null;
-	public RegistrationFrame() {
+	public SetActivateFrame() {
 		container=getContentPane();
 		
-		this.setTitle("Registration Form");
+		
+		this.setTitle("Activate User Screen");
 		this.setVisible(true);
 		this.setBounds(10,10,500,1600);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
 }

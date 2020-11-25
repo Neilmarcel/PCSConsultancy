@@ -23,7 +23,6 @@ public class SkillController {
 			ski.setSkillName(Skill);
 			System.out.println("Enter Skill Description:");
 			ski.setSkillDescription(reader.readLine());
-			
 			if(Skill.equals("Leadership")) {
 				ski.setActive("Active");
 			}
@@ -63,7 +62,7 @@ public class SkillController {
 			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 			int id;
 			String skill, skilldescription;
-			System.out.println("Enter EmployeeId whose record you want to update:");
+			System.out.println("Enter SkillId of the record you want to update:");
 			id=Integer.parseInt(reader.readLine());
 			Skill ski=SkillDao.getSkillById(id);
 			System.out.println("Enter your new Skill:");

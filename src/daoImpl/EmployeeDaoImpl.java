@@ -15,6 +15,31 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 		//Opened connection
 		conn=JDBCConnection.getDBConnection();
 	}
+	public Employee checkLogin(String userId, String password) {
+		Employee emp=new Employee();
+		try{
+			PreparedStatement pst=conn.prepareStatement("select * from Employee where userId=? and password=?");
+			pst.setString(1, userId);
+			pst.setString(2, password);
+			ResultSet rst=pst.executeQuery();
+			if(rst!=null) {
+				if(rst.next()) {
+					emp.setEmpId(rst.getInt(1));
+					emp.setFirstName(rst.getString(2));
+					emp.setLastName(rst.getString(3));
+					emp.setUserId(rst.getString(4));
+					emp.setPassword(rst.getString(5));
+					emp.setRole(rst.getString(6));
+					emp.setGender(rst.getString(7));
+					emp.setActive(rst.getString(8));
+				}
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		return emp;
+	}
 	@Override
 	public List<Employee> getAllEmployees() {
 		List<Employee> allEmpList=new ArrayList<Employee>(); //1

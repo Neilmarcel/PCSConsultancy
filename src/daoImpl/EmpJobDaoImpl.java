@@ -28,7 +28,7 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 					ejb.setEJId(rst.getInt(1));
 					ejb.setEmpId(rst.getInt(2));
 					ejb.setJobId(rst.getInt(3));
-					ejb.setRecruited(rst.getInt(4));
+					ejb.setRecruited(rst.getString(4));
 					allEmpJobList.add(ejb); //2
 				}
 			}
@@ -44,7 +44,7 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 		try {
 			//creating PreparedStatement object by passing query string
 			PreparedStatement pst=conn.prepareStatement("insert into EmpJob(Recruited) values(?)");
-			pst.setInt(1, esk.getRecruited());
+			pst.setString(1, esk.getRecruited());
 			int i=pst.executeUpdate();
 			if(i==1){
 				System.out.println("1 record inserted...");
@@ -72,7 +72,7 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 					ejb.setEJId(rst.getInt(1));
 					ejb.setEmpId(rst.getInt(2));
 					ejb.setJobId(rst.getInt(3));
-					ejb.setRecruited(rst.getInt(4));
+					ejb.setRecruited(rst.getString(4));
 				}
 			}
 		}
@@ -87,7 +87,7 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 		try {
 			//creating PreparedStatement object by passing query string
 			PreparedStatement pst=conn.prepareStatement("update EmpJob set Recruited=? where EJId=? ");
-			pst.setInt(1, ejb.getRecruited());
+			pst.setString(1, ejb.getRecruited());
 			pst.setInt(2, ejb.getEJId());
 			int i=pst.executeUpdate();
 			if(i==1){

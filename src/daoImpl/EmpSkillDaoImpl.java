@@ -28,7 +28,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 					esk.setESId(rst.getInt(1));
 					esk.setEmpId(rst.getInt(2));
 					esk.setSkillId(rst.getInt(3));
-					esk.setExpYear(rst.getInt(4));
+					esk.setExpYear(rst.getString(4));
 					allEmpSkillList.add(esk); //2
 				}
 			}
@@ -72,7 +72,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 					esk.setESId(rst.getInt(1));
 					esk.setEmpId(rst.getInt(2));
 					esk.setSkillId(rst.getInt(3));
-					esk.setExpYear(rst.getInt(4));
+					esk.setExpYear(rst.getString(4));
 				}
 			}
 		}

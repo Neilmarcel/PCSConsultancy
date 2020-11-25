@@ -31,7 +31,7 @@ CREATE TABLE Job (
     Activate BIT NOT NULL,
     PRIMARY KEY(JobId)
 );
-                 
+alter table Job modify column Location nvarchar(20);
 CREATE TABLE EmpSkill (
     ESId INT AUTO_INCREMENT,
     EmployeeId INT NOT NULL,
@@ -40,9 +40,10 @@ CREATE TABLE EmpSkill (
     SkillId INT NOT NULL,
     CONSTRAINT fk2 FOREIGN KEY (SkillId)
         REFERENCES Skill (SkillId),
-    ExpYear SMALLINT NOT NULL,
+    ExpYear INT NOT NULL,
     PRIMARY KEY (ESId)
 );
+alter table EmpSkill modify column ExpYear int;
 CREATE TABLE EmpJob (
     EJId INT AUTO_INCREMENT,
     EmployeeId INT NOT NULL,
@@ -55,7 +56,7 @@ CREATE TABLE EmpJob (
     PRIMARY KEY(EJId)
 );
 
-Select * from employee;
+Select * from skill;
 
 
     
