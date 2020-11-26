@@ -28,22 +28,21 @@ CREATE TABLE Job (
     Location GEOMETRY NULL,
     KeySkill NVARCHAR(50) NOT NULL,
     Salary DECIMAL(15 , 4 ) NULL,
-    Activate BIT NOT NULL,
+    Activate nchar(20) NOT NULL,
     PRIMARY KEY(JobId)
 );
-alter table Job modify column Location nvarchar(20);
+
 CREATE TABLE EmpSkill (
     ESId INT AUTO_INCREMENT,
-    EmployeeId INT NOT NULL,
-    CONSTRAINT fk1 FOREIGN KEY (EmployeeId)
-        REFERENCES Employee (EmployeeId),
-    SkillId INT NOT NULL,
+    EmployeeId int default null,
+    CONSTRAINT fk1 FOREIGN KEY (EmployeeId) 
+        REFERENCES Employee (EmployeeId) on update cascade on delete cascade,
+    SkillId INT default null,
     CONSTRAINT fk2 FOREIGN KEY (SkillId)
-        REFERENCES Skill (SkillId),
-    ExpYear INT NOT NULL,
+        REFERENCES Skill (SkillId) on update cascade on delete cascade,
+    ExpYear int not null,
     PRIMARY KEY (ESId)
-);
-alter table EmpSkill modify column ExpYear int;
+)Engine=innodb;
 CREATE TABLE EmpJob (
     EJId INT AUTO_INCREMENT,
     EmployeeId INT NOT NULL,
@@ -55,6 +54,8 @@ CREATE TABLE EmpJob (
     Recruited NVARCHAR(20) NOT NULL,
     PRIMARY KEY(EJId)
 );
+
+
 
 Select * from skill;
 

@@ -3,6 +3,8 @@ package controller;
 import java.io.*;
 import java.sql.*;
 import java.util.List;
+import java.util.Scanner;
+
 import dao.IEmployeeDao;
 import daoImpl.EmployeeDaoImpl;
 import model.Employee;
@@ -130,15 +132,11 @@ public class EmployeeController {
 		}
 		public void addEmpSkill() {
 			EmpSkill esk=new EmpSkill();
-			try {
-				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-				System.out.println("Enter year of Expiry:");
-				esk.setExpYear(reader.readLine());
-				empskillDao.addEmpSkill(esk);
-			}
-			catch(IOException ex){
-				System.out.println(ex.getMessage());
-			}
+			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter year of Expiry:");
+			esk.setExpYear(sc.nextInt());
+			empskillDao.addEmpSkill(esk);
 		}
 		public void getAllEmpSkills() {
 			
@@ -163,13 +161,14 @@ public class EmployeeController {
 		public void updateEmpSkill() {
 			try {
 				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+				Scanner sc=new Scanner(System.in);
 				int id;
-				String expyear;
+				int expyear;
 				System.out.println("Enter ESId whose record you want to update:");
 				id=Integer.parseInt(reader.readLine());
 				EmpSkill esk=empskillDao.getEmpSkillById(id);
 				System.out.println("Enter your new Expiry Year:");
-				expyear=reader.readLine();
+				expyear=sc.nextInt();
 				esk.setExpYear(expyear);
 				empskillDao.updateEmpSkill(esk);
 				System.out.println(esk);

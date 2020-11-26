@@ -37,12 +37,12 @@ public class EmpSkill {
 	public int getExpYear() {
 		return ExpYear;
 	}
-	public void setExpYear(String readLine) {
-		ExpYear = getExpYear();
-		
+	public void setExpYear(int expYear) {
+		ExpYear = expYear;
 	}
 	@Override
 	public String toString() {
 		return "EmpSkill [ESId=" + ESId + ", empId=" + empId + ", SkillId=" + SkillId + ", ExpYear=" + ExpYear + "]";
 	}
+	
 }
