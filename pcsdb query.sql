@@ -31,18 +31,23 @@ CREATE TABLE Job (
     Activate nchar(20) NOT NULL,
     PRIMARY KEY(JobId)
 );
-
 CREATE TABLE EmpSkill (
-    ESId INT AUTO_INCREMENT,
-    EmployeeId int default null,
+    ESId INT primary key auto_increment NOT NULL,
+    EmployeeId INT,
     CONSTRAINT fk1 FOREIGN KEY (EmployeeId) 
-        REFERENCES Employee (EmployeeId) on update cascade on delete cascade,
-    SkillId INT default null,
+        REFERENCES Employee (EmployeeId)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    SkillId INT,
     CONSTRAINT fk2 FOREIGN KEY (SkillId)
-        REFERENCES Skill (SkillId) on update cascade on delete cascade,
-    ExpYear int not null,
-    PRIMARY KEY (ESId)
-)Engine=innodb;
+        REFERENCES Skill (SkillId)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    ExpYear INT NOT NULL
+)  ENGINE=INNODB;
+					
+
+
 CREATE TABLE EmpJob (
     EJId INT AUTO_INCREMENT,
     EmployeeId INT NOT NULL,
@@ -54,9 +59,20 @@ CREATE TABLE EmpJob (
     Recruited NVARCHAR(20) NOT NULL,
     PRIMARY KEY(EJId)
 );
-
-
-
+CREATE TABLE EmpJob (
+    EJId INT primary key auto_increment NOT NULL,
+    EmployeeId INT,
+    CONSTRAINT fk_empid FOREIGN KEY (EmployeeId) 
+        REFERENCES Employee (EmployeeId)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    JobId INT,
+    CONSTRAINT fk_jobid FOREIGN KEY (JobId)
+        REFERENCES Job (JobId)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    Recruited varchar(20) NOT NULL
+)  ENGINE=INNODB;
 Select * from skill;
 
 
