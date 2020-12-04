@@ -1,6 +1,5 @@
 package model;
 import model.Employee;
-import model.Skill;
 public class EmpSkill extends Employee {
 	private int ESId;
 	private int EmployeeId;
