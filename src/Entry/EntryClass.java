@@ -8,6 +8,7 @@ import config.JDBCConnection;
 import controller.EmployeeController;
 import controller.SkillController;
 import controller.JobController;
+import java.lang.String;
 
 public class EntryClass {
 	public void testConnection() throws ClassNotFoundException, SQLException{
@@ -42,6 +43,17 @@ public class EntryClass {
 					System.out.println("4. Update an Employee record");
 					System.out.println("5. Deactive an Employee record");
 					System.out.println("6. Delete an Employees record");
+					System.out.println("7. View all Employee Skill records");
+					System.out.println("8. View single Employee Skill record");
+					System.out.println("9. Add an Employee Skill");
+					System.out.println("10. Update an Employee Skill record");
+					System.out.println("11. Delete an Employee Skill record");
+					System.out.println("12. View all Employee Job records");
+					System.out.println("13. View single Employee Job record");
+					System.out.println("14. Add an Employee Job");
+					System.out.println("15. Update an Employee Job record");
+					System.out.println("16. Delete an Employee Job record");
+					System.out.println("17. Exit");
 					System.out.println("Enter your choice:");
 					option=sc.nextInt();
 					switch(option) {
@@ -66,6 +78,40 @@ public class EntryClass {
 							empController.DeleteEmployee();
 							break;
 						case 7:
+							System.out.println("Following are all Employee Skill Details:");
+							empController.getAllEmpSkills();
+							break;
+						case 8:
+							empController.getEmpSkillById();
+							break;
+						case 9:
+							System.out.println("Enter Employee Skill Detail:");
+							empController.addEmpSkill();
+							break;
+						case 10:
+							empController.updateEmpSkill();
+							break;
+						case 11:
+							empController.DeleteEmpSkill();
+							break;
+						case 12:
+							System.out.println("Following are all EmpJob Details:");
+							empController.getAllEmpJobs();
+							break;
+						case 13:
+							empController.getEmpJobById();
+							break;
+						case 14:
+							System.out.println("Enter EmpJob Detail:");
+							empController.addEmpJob();
+							break;
+						case 15:
+							empController.updateEmpJob();
+							break;
+						case 16:
+							empController.DeleteEmpJob();
+							break;
+						case 17:
 							System.exit(0);
 							break;
 						default:
@@ -158,90 +204,6 @@ public class EntryClass {
 							jobController.DeleteJob();
 							break;
 						case 7:
-							System.exit(0);
-							break;
-						default:
-							System.out.println("Wrong input");
-					}
-					System.out.println("Do you want to continue?(y/n)");
-					ch=sc.next().charAt(0);
-				}
-			}
-			else if(TableName.equals("EmpSkill")){
-				EmployeeController empskillController=new EmployeeController();
-				int option;
-				Scanner sc=new Scanner(System.in);
-				char ch='y';
-				while(ch=='y' || ch=='Y') {
-					System.out.println("CRUD Operation Menu:");
-					System.out.println("1. View all Employee Skill records");
-					System.out.println("2. View single Employee Skill record");
-					System.out.println("3. Add an Employee Skill");
-					System.out.println("4. Update an Employee Skill record");
-					System.out.println("5. Delete an Employee Skill record");
-					System.out.println("Enter your choice:");
-					option=sc.nextInt();
-					switch(option) {
-						case 1:
-							System.out.println("Following are all Employee Skill Details:");
-							empskillController.getAllEmpSkills();
-							break;
-						case 2:
-							empskillController.getEmpSkillById();
-							break;
-						case 3:
-							System.out.println("Enter Employee Skill Detail:");
-							empskillController.addEmpSkill();
-							break;
-						case 4:
-							empskillController.updateEmpSkill();
-							break;
-						case 5:
-							empskillController.DeleteEmpSkill();
-							break;
-						case 6:
-							System.exit(0);
-							break;
-						default:
-							System.out.println("Wrong input");
-					}
-					System.out.println("Do you want to continue?(y/n)");
-					ch=sc.next().charAt(0);
-				}
-			}
-			else if(TableName.equals("EmpJob")) {
-				EmployeeController empjobController=new EmployeeController();
-				int option;
-				Scanner sc=new Scanner(System.in);
-				char ch='y';
-				while(ch=='y' || ch=='Y') {
-					System.out.println("CRUD Operation Menu:");
-					System.out.println("1. View all Employee Job records");
-					System.out.println("2. View single Employee Job record");
-					System.out.println("3. Add an Employee Job");
-					System.out.println("4. Update an Employee Job record");
-					System.out.println("5. Delete an Employee Job record");
-					System.out.println("Enter your choice:");
-					option=sc.nextInt();
-					switch(option) {
-						case 1:
-							System.out.println("Following are all EmpJob Details:");
-							empjobController.getAllEmpJobs();
-							break;
-						case 2:
-							empjobController.getEmpJobById();
-							break;
-						case 3:
-							System.out.println("Enter EmpJob Detail:");
-							empjobController.addEmpJob();
-							break;
-						case 4:
-							empjobController.updateEmpJob();
-							break;
-						case 5:
-							empjobController.DeleteEmpJob();
-							break;
-						case 6:
 							System.exit(0);
 							break;
 						default:

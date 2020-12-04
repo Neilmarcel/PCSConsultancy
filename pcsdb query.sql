@@ -47,18 +47,6 @@ CREATE TABLE EmpSkill (
 )  ENGINE=INNODB;
 					
 
-
-CREATE TABLE EmpJob (
-    EJId INT AUTO_INCREMENT,
-    EmployeeId INT NOT NULL,
-    CONSTRAINT EmployeeId FOREIGN KEY (EmployeeId)
-        REFERENCES Employee (EmployeeId),
-    JobId INT NOT NULL,
-    CONSTRAINT JobId FOREIGN KEY (JobId)
-        REFERENCES Job(JobId),
-    Recruited NVARCHAR(20) NOT NULL,
-    PRIMARY KEY(EJId)
-);
 CREATE TABLE EmpJob (
     EJId INT primary key auto_increment NOT NULL,
     EmployeeId INT,

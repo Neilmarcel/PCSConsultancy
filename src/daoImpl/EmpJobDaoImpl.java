@@ -7,6 +7,8 @@ import java.util.List;
 import config.JDBCConnection;
 import dao.IEmpJobDao;
 import model.EmpJob;
+import model.Employee;
+import model.Job;
 
 public class EmpJobDaoImpl implements IEmpJobDao{
 
@@ -62,6 +64,8 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 	@Override
 	public EmpJob getEmpJobById(int id) {
 		EmpJob ejb=new EmpJob(); //1
+		Employee emp=new Employee();
+		Job jb=new Job();
 		try{
 			PreparedStatement pst=conn.prepareStatement("select * from EmpJob where EJId=?");
 			pst.setInt(1,id);
@@ -70,8 +74,8 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 				if(rst.next()) {
 					ejb=new EmpJob();
 					ejb.setEJId(rst.getInt(1));
-					ejb.setEmpId(rst.getInt(2));
-					ejb.setJobId(rst.getInt(3));
+					emp.setEmpId(rst.getInt(2));
+					jb.setJobId(rst.getInt(3));
 					ejb.setRecruited(rst.getString(4));
 				}
 			}

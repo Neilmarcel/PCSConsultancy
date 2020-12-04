@@ -5,11 +5,11 @@ public class EmpJob {
 	private int EmpId;
     private int JobId;
     private String Recruited;
-  //default constructor methods
+    //default constructor methods
     public EmpJob() {
     	
     }
-  //parameterized constructor method
+    //parameterized constructor method
 	public EmpJob(int empId, int jobId, String recruited) {
 		super();
 		EmpId = empId;
@@ -42,7 +42,7 @@ public class EmpJob {
 	}
 	@Override
 	public String toString() {
-		return "EmpJob [EJId=" + EJId + ", EmpId=" + EmpId + ", JobId=" + JobId + ", Recruited=" + Recruited + "]";
+		return "EmpJob [EJId=" + EJId + ", EmpId=" + EJId + ", JobId=" + EJId + ", Recruited=" + Recruited + "]";
 	}
-    
+	
 }

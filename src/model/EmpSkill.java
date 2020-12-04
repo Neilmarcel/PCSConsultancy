@@ -1,8 +1,9 @@
 package model;
-
-public class EmpSkill {
+import model.Employee;
+import model.Skill;
+public class EmpSkill extends Employee {
 	private int ESId;
-	private int empId;
+	private int EmployeeId;
 	private int SkillId;
 	private int ExpYear;
 	//default constructor methods
@@ -10,23 +11,24 @@ public class EmpSkill {
 			
 	}
 	//parameterized constructor method
-	public EmpSkill(int empId, int skillId, int expYear) {
-		super();
-		this.empId = empId;
-		SkillId = skillId;
-		ExpYear = expYear;
-	}
+	
 	public int getESId() {
 		return ESId;
+	}
+	public EmpSkill(int employeeId, int skillId, int expYear) {
+		super();
+		EmployeeId = employeeId;
+		SkillId = skillId;
+		ExpYear = expYear;
 	}
 	public void setESId(int eSId) {
 		ESId = eSId;
 	}
-	public int getEmpId() {
-		return empId;
+	public int getEmployeeId() {
+		return EmployeeId;
 	}
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public void setEmployeeId(int employeeId) {
+		EmployeeId = employeeId;
 	}
 	public int getSkillId() {
 		return SkillId;
@@ -42,7 +44,7 @@ public class EmpSkill {
 	}
 	@Override
 	public String toString() {
-		return "EmpSkill [ESId=" + ESId + ", empId=" + empId + ", SkillId=" + SkillId + ", ExpYear=" + ExpYear + "]";
+		return "EmpSkill [ESId=" + ESId + ", EmployeeId=" + ESId + ", SkillId=" + ESId + ", ExpYear=" + ExpYear
+				+ "]";
 	}
-	
 }

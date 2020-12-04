@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.Employee;
+import dao.IEmployeeDao;
+import dao.ISkillDao;
+import model.Skill;
 import config.JDBCConnection;
 import dao.IEmpSkillDao;
 import model.EmpSkill;
@@ -26,7 +29,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 				while(rst.next()) {
 					esk=new EmpSkill();
 					esk.setESId(rst.getInt(1));
-					esk.setEmpId(rst.getInt(2));
+					esk.setEmployeeId(rst.getInt(2));
 					esk.setSkillId(rst.getInt(3));
 					esk.setExpYear(rst.getInt(4));
 					allEmpSkillList.add(esk); //2
@@ -44,7 +47,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 		try {
 			//creating PreparedStatement object by passing query string
 			PreparedStatement pst=conn.prepareStatement("insert into EmpSkill(ExpYear) values(?)");
-			pst.setInt(1, esk.getExpYear());
+			pst.setInt(3, esk.getExpYear());
 			int i=pst.executeUpdate();
 			if(i==1){
 				System.out.println("1 record inserted...");
@@ -61,7 +64,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 
 	@Override
 	public EmpSkill getEmpSkillById(int id) {
-		EmpSkill esk=new EmpSkill(); //1
+		EmpSkill esk=new EmpSkill();
 		try{
 			PreparedStatement pst=conn.prepareStatement("select * from EmpSkill where ESId=?");
 			pst.setInt(1,id);
@@ -70,7 +73,7 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 				if(rst.next()) {
 					esk=new EmpSkill();
 					esk.setESId(rst.getInt(1));
-					esk.setEmpId(rst.getInt(2));
+					esk.setEmployeeId(rst.getInt(2));
 					esk.setSkillId(rst.getInt(3));
 					esk.setExpYear(rst.getInt(4));
 				}
