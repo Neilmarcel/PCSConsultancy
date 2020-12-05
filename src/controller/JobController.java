@@ -15,35 +15,35 @@ public class JobController {
 		JobDao=new JobDaoImpl();
 	}
 	
-	public void addJob() {
+	public void addJob(String s1, String s2, String s3, String s4, String s5, String s6) {
 		Job jb=new Job();
-		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("Enter Job Title:");
-			String Job=reader.readLine();
-			jb.setJobTitle(Job);
-			System.out.println("Enter Job Description:");
-			jb .setJobDescription(reader.readLine());
-			System.out.println("Enter Company Name:");
-			jb.setCompanyName(reader.readLine());
-			System.out.println("Enter Location:");
-			jb.setLocation(reader.readLine());
-			System.out.println("Enter Key skill:");
-			jb.setKeySkill(reader.readLine());
-			System.out.println("Enter Salary:");
-			jb.setSalary(reader.readLine());
-			if(Job.equals("Leadership")) {
-				jb.setActivate("Activated");
-			}
-			else {
-				jb.setActivate("Deactivated");
-			}
-			//Calling dao method for insert record
-			JobDao.addJob(jb);
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//System.out.println("Enter Job Title:");
+		//String Job=reader.readLine();
+		jb.setJobTitle(s1);
+		//System.out.println("Enter Job Description:");
+		//jb .setJobDescription(reader.readLine());
+		jb .setJobDescription(s2);
+		//System.out.println("Enter Company Name:");
+		//jb.setCompanyName(reader.readLine());
+		jb.setCompanyName(s3);
+		//System.out.println("Enter Location:");
+		//jb.setLocation(reader.readLine());
+		jb.setLocation(s4);
+		//System.out.println("Enter Key skill:");
+		//jb.setKeySkill(reader.readLine());
+		jb.setKeySkill(s5);
+		System.out.println("Enter Salary:");
+		//jb.setSalary(reader.readLine());
+		jb.setSalary(s6);
+		if(s1.equals("HR")) {
+			jb.setActivate("Activated");
 		}
-		catch(IOException ex) {
-			System.out.println(ex.getMessage());
+		else {
+			jb.setActivate("Deactivated");
 		}
+		//Calling dao method for insert record
+		JobDao.addJob(jb);
 	}
 	
 	public void getAllJobs() {

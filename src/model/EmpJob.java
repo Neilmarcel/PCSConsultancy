@@ -42,7 +42,6 @@ public class EmpJob {
 	}
 	@Override
 	public String toString() {
-		return "EmpJob [EJId=" + EJId + ", EmpId=" + EJId + ", JobId=" + EJId + ", Recruited=" + Recruited + "]";
+		return "EmpJob [EJId=" + EJId + ", EmpId=" + EmpId + ", JobId=" + JobId + ", Recruited=" + Recruited + "]";
 	}
-	
 }

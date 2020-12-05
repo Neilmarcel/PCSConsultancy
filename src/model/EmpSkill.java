@@ -10,15 +10,14 @@ public class EmpSkill extends Employee {
 			
 	}
 	//parameterized constructor method
-	
-	public int getESId() {
-		return ESId;
-	}
 	public EmpSkill(int employeeId, int skillId, int expYear) {
 		super();
 		EmployeeId = employeeId;
 		SkillId = skillId;
 		ExpYear = expYear;
+	}
+	public int getESId() {
+		return ESId;
 	}
 	public void setESId(int eSId) {
 		ESId = eSId;
@@ -43,7 +42,7 @@ public class EmpSkill extends Employee {
 	}
 	@Override
 	public String toString() {
-		return "EmpSkill [ESId=" + ESId + ", EmployeeId=" + ESId + ", SkillId=" + ESId + ", ExpYear=" + ExpYear
+		return "EmpSkill [ESId=" + ESId + ", EmployeeId=" + EmployeeId + ", SkillId=" + SkillId + ", ExpYear=" + ExpYear
 				+ "]";
 	}
 }

@@ -66,7 +66,7 @@ public class EntryClass {
 							break;
 						case 3:
 							System.out.println("Enter Employee Detail:");
-							empController.addEmployee();
+							empController.addEmployee(TableName, TableName, TableName, TableName, TableName, TableName);
 							break;
 						case 4:
 							empController.updateEmployee();
@@ -146,7 +146,7 @@ public class EntryClass {
 							break;
 						case 3:
 							System.out.println("Enter Skill Detail:");
-							skillController.addSkill();
+							skillController.addSkill(TableName, TableName);
 							break;
 						case 4:
 							skillController.updateSkill();
@@ -192,7 +192,7 @@ public class EntryClass {
 							break;
 						case 3:
 							System.out.println("Enter Job Detail:");
-							jobController.addJob();
+							jobController.addJob(TableName, TableName, TableName, TableName, TableName, TableName);
 							break;
 						case 4:
 							jobController.updateJob();

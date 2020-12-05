@@ -42,7 +42,9 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 	public void addEmpSkill(EmpSkill esk){
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("insert into EmpSkill(ExpYear) values(?)");
+			PreparedStatement pst=conn.prepareStatement("insert into EmpSkill(EmployeeId,SkillId,ExpYear) values(?,?,?)");
+			pst.setInt(1,esk.getEmployeeId());
+			pst.setInt(2,esk.getSkillId());
 			pst.setInt(3, esk.getExpYear());
 			int i=pst.executeUpdate();
 			if(i==1){

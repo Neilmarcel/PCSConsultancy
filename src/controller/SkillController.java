@@ -14,27 +14,22 @@ public class SkillController {
 		SkillDao=new SkillDaoImpl();
 	}
 	
-	public void addSkill() {
+	public void addSkill(String s1, String s2) throws IOException {
 		Skill ski=new Skill();
-		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("Enter Skill Name:");
-			String Skill=reader.readLine();
-			ski.setSkillName(Skill);
-			System.out.println("Enter Skill Description:");
-			ski.setSkillDescription(reader.readLine());
-			if(Skill.equals("Leadership")) {
-				ski.setActive("Active");
-			}
-			else {
-				ski.setActive("Deactive");
-			}
-			//Calling dao method for insert record
-			SkillDao.addSkill(ski);
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//System.out.println("Enter Skill Name:");
+		//String Skill=reader.readLine();
+		ski.setSkillName(s1);
+		//System.out.println("Enter Skill Description:");
+		ski.setSkillDescription(s2);
+		if(s1.equals("Leadership")) {
+			ski.setActive("Active");
 		}
-		catch(IOException ex) {
-			System.out.println(ex.getMessage());
+		else {
+			ski.setActive("Deactive");
 		}
+		//Calling dao method for insert record
+		SkillDao.addSkill(ski);
 	}
 	
 	public void getAllSkills() {

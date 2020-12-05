@@ -25,44 +25,34 @@ CREATE TABLE Job (
     JobTitle NVARCHAR(50) NOT NULL,
     JobDescription NVARCHAR(400) NOT NULL,
     CompanyName NVARCHAR(50) NOT NULL,
-    Location GEOMETRY NULL,
+    Location NVARCHAR(20) NULL,
     KeySkill NVARCHAR(50) NOT NULL,
     Salary DECIMAL(15 , 4 ) NULL,
     Activate nchar(20) NOT NULL,
     PRIMARY KEY(JobId)
 );
 CREATE TABLE EmpSkill (
-    ESId INT primary key auto_increment NOT NULL,
-    EmployeeId INT,
-    CONSTRAINT fk1 FOREIGN KEY (EmployeeId) 
-        REFERENCES Employee (EmployeeId)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    SkillId INT,
-    CONSTRAINT fk2 FOREIGN KEY (SkillId)
-        REFERENCES Skill (SkillId)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    ExpYear INT NOT NULL
-)  ENGINE=INNODB;
-					
+    ESId INT AUTO_INCREMENT,
+    EmployeeId INT NOT NULL,
+    SkillId INT NOT NULL,
+    ExpYear INT NOT NULL,
+    PRIMARY KEY (ESID)
+);
 
 CREATE TABLE EmpJob (
-    EJId INT primary key auto_increment NOT NULL,
-    EmployeeId INT,
-    CONSTRAINT fk_empid FOREIGN KEY (EmployeeId) 
-        REFERENCES Employee (EmployeeId)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    JobId INT,
-    CONSTRAINT fk_jobid FOREIGN KEY (JobId)
-        REFERENCES Job (JobId)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    Recruited varchar(20) NOT NULL
-)  ENGINE=INNODB;
-Select * from skill;
+    EJId INT AUTO_INCREMENT,
+    EmployeeId INT NOT NULL,
+    JobId INT NOT NULL,
+    Recruited VARCHAR(20) NOT NULL,
+    PRIMARY KEY (EJId)
+);
+
+Select * from Employee;
+Select * from Skill;
+Select * from Job;
+Select * from EmpSkill;
+Select * from EmpJob
 
 
-    
+
     

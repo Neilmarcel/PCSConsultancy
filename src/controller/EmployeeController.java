@@ -29,43 +29,39 @@ public class EmployeeController {
 		Employee emp=empDao.checkLogin(userId, password);
 		return emp;
 	}
-	public void addEmployee() {
+	public void addEmployee(String s1, String s2, String s3, String s4, String s5, String s6) {
 		Employee emp=new Employee();
-		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("Enter First Name:");
-			emp.setFirstName(reader.readLine());
-			System.out.println("Enter Last Name:");
-			emp.setLastName(reader.readLine());
-			System.out.println("Enter UserId:");
-			emp.setUserId(reader.readLine());
-			System.out.println("Enter Password:");
-			emp.setPassword(reader.readLine());
-			System.out.println("Enter Role:");
-			String role=reader.readLine();
-			emp.setRole(role);
-			System.out.println("Enter Gender:");
-			emp.setGender(reader.readLine());
-			if(role.equals("HRA")) {
-				emp.setActive("Active");
-			}
-			else {
-				emp.setActive("Deactive");
-			}
-			//Calling dao method for insert record
-			empDao.addEmployee(emp);
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//System.out.println("Enter First Name:");
+		emp.setFirstName(s1);
+		//System.out.println("Enter Last Name:");
+		emp.setLastName(s2);
+		//System.out.println("Enter UserId:");
+		emp.setUserId(s3);
+		//System.out.println("Enter Password:");
+		emp.setPassword(s4);
+		//System.out.println("Enter Role:");
+		//String role=reader.readLine();
+		emp.setRole(s5);
+		//System.out.println("Enter Gender:");
+		emp.setGender(s6);
+		if (s5.equals("HRA") || s5.equals("EMP") || s5.equals("PME")) {
+			emp.setActive("Active");
 		}
-		catch(IOException ex) {
-			System.out.println(ex.getMessage());
+		else {
+			emp.setActive("Deactive");
 		}
+		//Calling dao method for insert record
+		empDao.addEmployee(emp);
 	}
 	
-	public void getAllEmployees() {
+	public List<Employee> getAllEmployees() {
 		
 		List<Employee> allEmpList=empDao.getAllEmployees();
 		for(Employee emp:allEmpList) {
 			System.out.println(emp);
 		}
+		return allEmpList;
 	}
 	public void getEmployeeById() {
 		try {
