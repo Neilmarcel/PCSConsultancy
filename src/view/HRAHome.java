@@ -32,17 +32,22 @@ public class HRAHome extends JFrame {
 		lTitle=new JLabel("Welcome to HRA Portal");
 		tEmpId=new JTextField();
 
-		bSetActive=new JButton("Activate Users");
+		bSetActive=new JButton("Activate User");
 		bSetActive.addActionListener(new ActionListener(){
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					new ActivateFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 
 		});
 		
-		bSetDeactive=new JButton("Deactivate Users");
+		bSetDeactive=new JButton("Deactivate User");
 		bSetDeactive.addActionListener(new ActionListener(){
 
 			@Override
