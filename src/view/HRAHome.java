@@ -30,7 +30,6 @@ public class HRAHome extends JFrame {
 		skillController=new SkillController();
 		Employee emp=new Employee();
 		lTitle=new JLabel("Welcome to HRA Portal");
-		lEmpId=new JLabel("Employee Id: "+emp.getUserId());
 		tEmpId=new JTextField();
 
 		bSetActive=new JButton("Activate Users");
