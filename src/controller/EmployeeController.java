@@ -114,6 +114,19 @@ public class EmployeeController {
 				System.out.println(ex.getMessage());
 			}
 		}
+		public void activateEmployee() {
+			try {
+				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+				int id;
+				System.out.println("Enter EmployeeId whose record you want to activate:");
+				id=Integer.parseInt(reader.readLine());
+				Employee emp=empDao.getEmployeeById(id);
+				empDao.activateEmployee(emp);
+			}
+			catch(IOException ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
 		public void DeleteEmployee() {
 			try {
 				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));

@@ -163,6 +163,27 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 		}
 		
 	}
+	
+	@Override
+	public void activateEmployee(Employee emp) {
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("update Employee set Active=? where EmployeeId=? ");
+			pst.setString(1, "Active");
+			pst.setInt(2, emp.getEmpId());
+			int i=pst.executeUpdate();
+			if(i==1){
+				System.out.println("Employee activated...");
+			}
+			else {
+				System.out.println("updation failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
 
 	@Override
 	public void deleteEmployee(int id) {

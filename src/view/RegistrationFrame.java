@@ -15,7 +15,6 @@ public class RegistrationFrame extends JFrame  {
 	JTextField tFirstname,tLastname,tUserId,tGender,tRole;
 	JPasswordField tPassword,tconfirmPassword;
 	JButton bSubmit;
-	JCheckBox cTerms;
 	EmployeeController empController=null;
 
 	public RegistrationFrame()throws ClassNotFoundException, SQLException {
@@ -28,8 +27,6 @@ public class RegistrationFrame extends JFrame  {
 		lconfirmPassword=new JLabel("Confirm Password");
 		lGender=new JLabel("Gender");
 		lRole=new JLabel("Role");
-		
-		
 		tFirstname=new JTextField();
 		tLastname=new JTextField();
 		tUserId=new JTextField();
@@ -37,7 +34,6 @@ public class RegistrationFrame extends JFrame  {
 		tconfirmPassword=new JPasswordField();
 		tGender=new JTextField();
 		tRole=new JTextField();
-		
 		bSubmit=new JButton("SUBMIT");
 		empController=new EmployeeController();
 		//Event handling for Register button
@@ -46,7 +42,6 @@ public class RegistrationFrame extends JFrame  {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String s1,s2,s3,s4,s5,s6,s7;
-				
 				s1=tFirstname.getText();
 				s2=tLastname.getText();
 				s3=tUserId.getText();
