@@ -4,7 +4,6 @@ import java.awt.event.*;
 import java.sql.SQLException;
 import javax.swing.*;
 import controller.EmployeeController;
-import model.Employee;
 
 public class RegistrationFrame extends JFrame  {
 

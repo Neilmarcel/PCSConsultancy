@@ -3,7 +3,9 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+
 import javax.swing.*;
+
 import controller.EmployeeController;
 import model.Employee;
 
@@ -17,10 +19,10 @@ public class LoginFrame extends JFrame{
 	JCheckBox cShowPassword;
 	EmployeeController empController=null;
 	public LoginFrame() throws ClassNotFoundException, SQLException {
-		container=getContentPane();	
+		container=getContentPane();
 		lUserId=new JLabel("USERNAME");
 		lPassword=new JLabel("PASSWORD");
-		lMessage=new JLabel();	
+		lMessage=new JLabel();
 		tUserId=new JTextField();
 		tPassword=new JPasswordField();
 		bLogin=new JButton("LOGIN");
@@ -34,7 +36,6 @@ public class LoginFrame extends JFrame{
 				Employee emp=new Employee();
 				userId=tUserId.getText();
 				password=new String(tPassword.getPassword());
-				
 				emp=empController.checkLogin(userId, password);
 				if(emp==null) {
 					lMessage.setText("You are not authorized user! Retry or Register!");
@@ -73,19 +74,21 @@ public class LoginFrame extends JFrame{
 				try {
 					new RegistrationFrame();
 				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
 			}
 			
 		});
-		//cShowPassword=new JCheckBox("Show Password");
+		cShowPassword=new JCheckBox("Show Password");
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
-		this.setTitle("Login Form");
+		this.setTitle("PCSC User Login");
 		this.setVisible(true);
 		this.setBounds(10,10,500,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,11 +100,11 @@ public class LoginFrame extends JFrame{
 	public void setLocationAndSize() {
 		lMessage.setBounds(50, 80, 300, 30);
 		lUserId.setBounds(50, 150, 100, 30);
-		lPassword.setBounds(50, 250, 100, 30);	
+		lPassword.setBounds(50, 250, 100, 30);
 		tUserId.setBounds(200, 150, 150, 30);
 		tPassword.setBounds(200, 250, 150, 30);
 		bLogin.setBounds(100, 350, 100, 30);
-		bRegister.setBounds(300, 350, 100, 30);
+		bRegister.setBounds(250, 350, 100, 30);
 	}
 	public void addComponentsToContainer() {
 		container.add(lUserId);

@@ -28,31 +28,38 @@ public class HRAHome extends JFrame {
 		empController=new EmployeeController();
 		jobController=new JobController();
 		skillController=new SkillController();
-		Employee emp=new Employee();
 		lTitle=new JLabel("Welcome to HRA Portal");
+		lEmpId=new JLabel("Employee Id");
+		
+		
 		tEmpId=new JTextField();
-
-		bSetActive=new JButton("Activate User");
+		
+		Employee emp=new Employee();
+		bSetActive=new JButton("Activate Users");
 		bSetActive.addActionListener(new ActionListener(){
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				try {
-					new ActivateFrame();
-				} catch (ClassNotFoundException | SQLException e1) {
+					 new ActivateFrame();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			
 			}
-
 		});
 		
-		bSetDeactive=new JButton("Deactivate User");
+		bSetDeactive=new JButton("Deactivate Users");
 		bSetDeactive.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+
 			}	
 		});
 		
@@ -70,7 +77,7 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				empController.getEmployeeById();
+
 			}	
 		});
 		
@@ -84,12 +91,15 @@ public class HRAHome extends JFrame {
 					try {
 						 new AddSkillFrame();
 					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} catch (SQLException e1) {
-						
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				
+			
+			
 			}	
 		});
 		
@@ -118,11 +128,8 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					new LoginFrame();
-				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
-				}
+				
+				
 			}	
 		});
 		setLayoutManager();
@@ -131,7 +138,7 @@ public class HRAHome extends JFrame {
 		this.setTitle("HRA Home Screen");
 		this.setVisible(true);
 		this.setBounds(10,10,500,800);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
 
@@ -167,7 +174,7 @@ public class HRAHome extends JFrame {
 		container.add(bLogout);	
 		container.add(lEmpId);
 		container.add(tEmpId);
-		
+	
 	}
 
 }
