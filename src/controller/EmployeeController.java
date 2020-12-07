@@ -45,7 +45,7 @@ public class EmployeeController {
 		emp.setRole(s5);
 		//System.out.println("Enter Gender:");
 		emp.setGender(s6);
-		if (s5.equals("HRA") || s5.equals("EMP") || s5.equals("PME")) {
+		if (s5.equals("HRA")) {
 			emp.setActive("Active");
 		}
 		else {
@@ -115,17 +115,12 @@ public class EmployeeController {
 			}
 		}
 		public void activateEmployee(int s) {
-			try {
-				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-				int id;
-				System.out.println("Enter EmployeeId whose record you want to activate:");
-				id=Integer.parseInt(reader.readLine());
-				Employee emp=empDao.getEmployeeById(s);
-				empDao.activateEmployee(emp);
-			}
-			catch(IOException ex) {
-				System.out.println(ex.getMessage());
-			}
+			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			//int id;
+			//System.out.println("Enter EmployeeId whose record you want to activate:");
+			//id=Integer.parseInt(reader.readLine());
+			Employee emp=empDao.getEmployeeById(s);
+			empDao.activateEmployee(emp);
 		}
 		public void DeleteEmployee() {
 			try {

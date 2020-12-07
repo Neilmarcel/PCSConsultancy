@@ -29,8 +29,6 @@ public class HRAHome extends JFrame {
 		jobController=new JobController();
 		skillController=new SkillController();
 		lTitle=new JLabel("Welcome to HRA Portal");
-		lEmpId=new JLabel("Employee Id");
-		
 		
 		tEmpId=new JTextField();
 		
@@ -135,7 +133,7 @@ public class HRAHome extends JFrame {
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
-		this.setTitle("HRA Home Screen");
+		this.setTitle("HRA Home");
 		this.setVisible(true);
 		this.setBounds(10,10,500,800);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -42,7 +42,7 @@ public class ActivateFrame extends JFrame{
 		this.setTitle("Activate Employee");
 		this.setVisible(true);
 		this.setBounds(10,10,500,600);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
 	private void setLayoutManager() {
@@ -51,9 +51,13 @@ public class ActivateFrame extends JFrame{
 	}
 	private void setLocationAndSize() {
 		lEmployeeId.setBounds(30, 150, 100, 30);
+		tEmployeeId.setBounds(200, 150, 150, 30);
+		bActivate.setBounds(250, 350, 100, 30);
 	}
 
 	private void addComponentsToContainer() {
-		tEmployeeId.setBounds(300, 150, 150, 30);
+		container.add(lEmployeeId);
+		container.add(tEmployeeId);
+		container.add(bActivate);
 	}
 }
