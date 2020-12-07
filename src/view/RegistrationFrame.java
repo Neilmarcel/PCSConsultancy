@@ -91,7 +91,6 @@ public class RegistrationFrame extends JFrame  {
 		tconfirmPassword.setBounds(300,350,150,30);
 		tGender.setBounds(300, 400, 150, 30);
 		tRole.setBounds(300, 450, 150, 30);
-		
 		bSubmit.setBounds(100, 550, 150, 30);
 	}
 	public void addComponentsToContainer() {
@@ -109,7 +108,6 @@ public class RegistrationFrame extends JFrame  {
 		container.add(tGender);
 		container.add(lRole);
 		container.add(tRole);
-		
 		container.add(bSubmit);
 	}
 	

@@ -29,11 +29,10 @@ public class HRAHome extends JFrame {
 		jobController=new JobController();
 		skillController=new SkillController();
 		lTitle=new JLabel("Welcome to HRA Portal");
-		
 		tEmpId=new JTextField();
 		
 		Employee emp=new Employee();
-		bSetActive=new JButton("Activate Users");
+		bSetActive=new JButton("Activate User");
 		bSetActive.addActionListener(new ActionListener(){
 			
 			@Override
@@ -52,7 +51,7 @@ public class HRAHome extends JFrame {
 			}
 		});
 		
-		bSetDeactive=new JButton("Deactivate Users");
+		bSetDeactive=new JButton("Deactivate User");
 		bSetDeactive.addActionListener(new ActionListener(){
 
 			@Override
@@ -89,7 +88,7 @@ public class HRAHome extends JFrame {
 					try {
 						 new AddSkillFrame();
 					} catch (ClassNotFoundException e1) {
-						// TODO Auto-generated catch block
+						
 						e1.printStackTrace();
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
@@ -155,9 +154,6 @@ public class HRAHome extends JFrame {
 		bViewSkill.setBounds(50,400,300,30);
 		bSetDeactiveSkill.setBounds(50,450,300,30);
 		bLogout.setBounds(50,500,300,30);
-		lEmpId.setBounds(50, 80, 300, 30);
-		tEmpId.setBounds(200, 150, 150, 30);
-		
 	}
 
 	public void setLayoutManager() {
@@ -170,8 +166,6 @@ public class HRAHome extends JFrame {
 		container.add(bViewSkill);	
 		container.add(bSetDeactiveSkill);	
 		container.add(bLogout);	
-		container.add(lEmpId);
-		container.add(tEmpId);
 	
 	}
 
