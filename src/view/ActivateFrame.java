@@ -19,7 +19,7 @@ public class ActivateFrame extends JFrame{
 	public ActivateFrame() throws ClassNotFoundException, SQLException{
 		container=getContentPane();
 		f=new JFrame();
-		lEmployeeId=new JLabel("Employee ID");
+		lEmployeeId=new JLabel("Enter Employee ID");
 		tEmployeeId=new JTextField();
 		bActivate=new JButton("ACTIVATE");
 		empController=new EmployeeController();
@@ -29,7 +29,7 @@ public class ActivateFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int s;
-				s=tEmployeeId.getColumns();
+				s=Integer.parseInt(tEmployeeId.getText());
 				f=new JFrame();
 				empController.activateEmployee(s);
 				JOptionPane.showMessageDialog(f,"Employee Activated...");
@@ -52,7 +52,7 @@ public class ActivateFrame extends JFrame{
 	private void setLocationAndSize() {
 		lEmployeeId.setBounds(30, 150, 100, 30);
 		tEmployeeId.setBounds(200, 150, 150, 30);
-		bActivate.setBounds(250, 350, 100, 30);
+		bActivate.setBounds(200, 250, 100, 30);
 	}
 
 	private void addComponentsToContainer() {

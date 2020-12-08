@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import config.JDBCConnection;
 import dao.IEmployeeDao;
 import model.Employee;
@@ -172,11 +175,14 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 			pst.setString(1, "Active");
 			pst.setInt(2, emp.getEmpId());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("Employee activated...");
+				//System.out.println("Employee activated...");
+				JOptionPane.showMessageDialog(f,"Employee Activated...");
 			}
 			else {
-				System.out.println("updation failed...");
+				//System.out.println("updation failed...");
+				JOptionPane.showMessageDialog(f,"Activation failed...");
 			}
 		}
 		catch(SQLException ex) {
