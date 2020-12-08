@@ -110,7 +110,7 @@ public class HRAHome extends JFrame {
 		addComponentsToContainer();
 		this.setTitle("HRA Home");
 		this.setVisible(true);
-		this.setBounds(10,10,500,800);
+		this.setBounds(10,10,500,600);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
@@ -121,7 +121,8 @@ public class HRAHome extends JFrame {
 	}
 
 	public void setLocationAndSize() {
-		lTitle.setBounds(150, 100, 200, 30);
+		lTitle.setBounds(50, 50, 500, 60);
+		lTitle.setFont(getFont());;
 		bSetActive.setBounds(150,150,200,30);
 		bSetDeactive.setBounds(150,200,200,30);
 		bViewAllEmp.setBounds(150,250,200,30);
