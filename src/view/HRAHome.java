@@ -14,9 +14,7 @@ public class HRAHome extends JFrame {
 	Container container;
 	JLabel lTitle,lEmpId;
 	JTextField tEmpId,tdata;
-	JList list;
-	DefaultListModel<List<Employee>> listmodel;
-	JButton bSetActive,bSetDeactive,bViewAllEmp,bViewSelectiveEmp,bAddSkill,bViewSkill,bSetDeactiveSkill,bLogout;
+	JButton bSetActive,bSetDeactive,bViewAllEmp,bViewSelectiveEmp,bViewSkill,bSetDeactiveSkill,bLogout;
 	JFrame f;
 	EmployeeController empController=null;
 	JobController jobController=null;
@@ -28,10 +26,8 @@ public class HRAHome extends JFrame {
 		empController=new EmployeeController();
 		jobController=new JobController();
 		skillController=new SkillController();
-		lTitle=new JLabel("Welcome to HRA Portal");
+		lTitle=new JLabel("Welcome to HRA Portal!");
 		tEmpId=new JTextField();
-		
-		Employee emp=new Employee();
 		bSetActive=new JButton("Activate User");
 		bSetActive.addActionListener(new ActionListener(){
 			
@@ -78,27 +74,7 @@ public class HRAHome extends JFrame {
 			}	
 		});
 		
-		bAddSkill=new JButton("Add Skill");
-		bAddSkill.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				
-					try {
-						 new AddSkillFrame();
-					} catch (ClassNotFoundException e1) {
-						
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				
-			
-			
-			}	
-		});
+		
 		
 		bViewSkill=new JButton("View all Skills");
 		bViewSkill.addActionListener(new ActionListener(){
@@ -145,15 +121,14 @@ public class HRAHome extends JFrame {
 	}
 
 	public void setLocationAndSize() {
-		lTitle.setBounds(150, 100, 300, 30);
-		bSetActive.setBounds(50,150,300,30);
-		bSetDeactive.setBounds(50,200,300,30);
-		bViewAllEmp.setBounds(50,250,300,30);
-		bViewSelectiveEmp.setBounds(50,300,300,30);
-		bAddSkill.setBounds(50,350,300,30);
-		bViewSkill.setBounds(50,400,300,30);
-		bSetDeactiveSkill.setBounds(50,450,300,30);
-		bLogout.setBounds(50,500,300,30);
+		lTitle.setBounds(150, 100, 200, 30);
+		bSetActive.setBounds(150,150,200,30);
+		bSetDeactive.setBounds(150,200,200,30);
+		bViewAllEmp.setBounds(150,250,200,30);
+		bViewSelectiveEmp.setBounds(150,300,200,30);
+		bViewSkill.setBounds(150,350,200,30);
+		bSetDeactiveSkill.setBounds(150,400,200,30);
+		bLogout.setBounds(150,450,200,30);
 	}
 
 	public void setLayoutManager() {
@@ -162,7 +137,6 @@ public class HRAHome extends JFrame {
 		container.add(bSetDeactive);	
 		container.add(bViewAllEmp);	
 		container.add(bViewSelectiveEmp);
-		container.add(bAddSkill);	
 		container.add(bViewSkill);	
 		container.add(bSetDeactiveSkill);	
 		container.add(bLogout);	
