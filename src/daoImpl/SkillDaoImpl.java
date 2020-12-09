@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import config.JDBCConnection;
 import dao.ISkillDao;
 import model.Skill;
@@ -115,11 +118,36 @@ public class SkillDaoImpl implements ISkillDao{
 			pst.setString(1, "Deactive");
 			pst.setInt(2, ski.getSkillId());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("Skill deactivated...");
+				//System.out.println("Skill deactivated...");
+				JOptionPane.showMessageDialog(f,"Skill Deactivated...");
 			}
 			else {
-				System.out.println("updation failed...");
+				//System.out.println("Deactivation failed...");
+				JOptionPane.showMessageDialog(f,"Deactivation failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+	@Override
+	public void activateSkill(Skill ski) {
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("update Skill set Active=? where SkillId=? ");
+			pst.setString(1, "Active");
+			pst.setInt(2, ski.getSkillId());
+			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
+			if(i==1){
+				//System.out.println("Skill activated...");
+				JOptionPane.showMessageDialog(f,"Skill Activated...");
+			}
+			else {
+				JOptionPane.showMessageDialog(f,"Activation failed...");
 			}
 		}
 		catch(SQLException ex) {

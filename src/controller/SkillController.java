@@ -73,18 +73,21 @@ public class SkillController {
 			System.out.println(ex.getMessage());
 		}
 	}
-	public void deactivateSkill() {
-		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			int id;
-			System.out.println("Enter SkillId whose record you want to deactivate:");
-			id=Integer.parseInt(reader.readLine());
-			Skill ski=SkillDao.getSkillById(id);
-			SkillDao.deactivateSkill(ski);
-		}
-		catch(IOException ex) {
-			System.out.println(ex.getMessage());
-		}
+	public void deactivateSkill(int s) {
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//int id;
+		//System.out.println("Enter SkillId whose record you want to deactivate:");
+		//id=Integer.parseInt(reader.readLine());
+		Skill ski=SkillDao.getSkillById(s);
+		SkillDao.deactivateSkill(ski);
+	}
+	public void activateSkill(int s) {
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//int id;
+		//System.out.println("Enter SkillId whose record you want to activate:");
+		//id=Integer.parseInt(reader.readLine());
+		Skill ski=SkillDao.getSkillById(s);
+		SkillDao.activateSkill(ski);
 	}
 	public void DeleteSkill() {
 		try {

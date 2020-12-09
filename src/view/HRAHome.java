@@ -14,7 +14,7 @@ public class HRAHome extends JFrame {
 	Container container;
 	JLabel lTitle,lEmpId;
 	JTextField tEmpId,tdata;
-	JButton bSetActive,bSetDeactive,bViewAllEmp,bViewSelectiveEmp,bViewSkill,bSetDeactiveSkill,bLogout;
+	JButton bSetActive,bSetDeactive,bViewJob,bViewAllEmp,bSetDeactiveJob,bViewSelectiveEmp,bSetActiveJob,bViewSkill,bSetDeactiveSkill,bSetActiveSkill,bLogout;
 	JFrame f;
 	EmployeeController empController=null;
 	JobController jobController=null;
@@ -28,14 +28,14 @@ public class HRAHome extends JFrame {
 		skillController=new SkillController();
 		lTitle=new JLabel("Welcome to HRA Portal!");
 		tEmpId=new JTextField();
-		bSetActive=new JButton("Activate User");
+		bSetActive=new JButton("Activate Employee");
 		bSetActive.addActionListener(new ActionListener(){
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					 new ActivateFrame();
+					 new ActivateEmpFrame();
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -47,12 +47,20 @@ public class HRAHome extends JFrame {
 			}
 		});
 		
-		bSetDeactive=new JButton("Deactivate User");
+		bSetDeactive=new JButton("Deactivate Employee");
 		bSetDeactive.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				try {
+					 new DeactivateEmpFrame();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		
@@ -61,7 +69,12 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				empController.getAllEmployees();
+				try {
+					new AllEmployeesFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -70,7 +83,12 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				try {
+					new EmpbyIdFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		
@@ -91,8 +109,62 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				try {
+					new DeactivateSkillFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}	
+			}	
+		});
+		bSetActiveSkill=new JButton("Activate Skill");
+		bSetActiveSkill.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new ActivateSkillFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
+			}	
+		});
+		bViewJob=new JButton("View all Jobs");
+		bViewJob.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				skillController.getAllSkills();
 				
+			}	
+		});
+		
+		bSetDeactiveJob=new JButton("Deactivate Job");
+		bSetDeactiveJob.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					try {
+						new DeactivateJobFrame();
+					} catch (ClassNotFoundException | SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+			}	
+		});
+		bSetActiveJob=new JButton("Activate Job");
+		bSetActiveJob.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new ActivateJobFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}	
 			}	
 		});
 		
@@ -102,7 +174,6 @@ public class HRAHome extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
 			}	
 		});
 		setLayoutManager();
@@ -110,7 +181,7 @@ public class HRAHome extends JFrame {
 		addComponentsToContainer();
 		this.setTitle("HRA Home");
 		this.setVisible(true);
-		this.setBounds(10,10,500,600);
+		this.setBounds(10,10,500,700);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
@@ -122,14 +193,18 @@ public class HRAHome extends JFrame {
 
 	public void setLocationAndSize() {
 		lTitle.setBounds(50, 50, 500, 60);
-		lTitle.setFont(getFont());;
-		bSetActive.setBounds(150,150,200,30);
-		bSetDeactive.setBounds(150,200,200,30);
-		bViewAllEmp.setBounds(150,250,200,30);
-		bViewSelectiveEmp.setBounds(150,300,200,30);
-		bViewSkill.setBounds(150,350,200,30);
-		bSetDeactiveSkill.setBounds(150,400,200,30);
-		bLogout.setBounds(150,450,200,30);
+		lTitle.setFont(getFont());
+		bViewAllEmp.setBounds(150,100,200,30);
+		bSetActive.setBounds(150,200,200,30);
+		bSetDeactive.setBounds(150,150,200,30);
+		bViewSelectiveEmp.setBounds(150,250,200,30);
+		bViewSkill.setBounds(150,300,200,30);
+		bSetDeactiveSkill.setBounds(150,350,200,30);
+		bSetActiveSkill.setBounds(150,400,200,30);
+		bViewJob.setBounds(150,450,200,30);
+		bSetDeactiveJob.setBounds(150,500,200,30);
+		bSetActiveJob.setBounds(150,550,200,30);
+		bLogout.setBounds(150,600,200,30);
 	}
 
 	public void setLayoutManager() {
@@ -139,7 +214,11 @@ public class HRAHome extends JFrame {
 		container.add(bViewAllEmp);	
 		container.add(bViewSelectiveEmp);
 		container.add(bViewSkill);	
-		container.add(bSetDeactiveSkill);	
+		container.add(bSetDeactiveSkill);
+		container.add(bSetActiveSkill);
+		container.add(bViewJob);	
+		container.add(bSetDeactiveJob);
+		container.add(bSetActiveJob);
 		container.add(bLogout);	
 	
 	}

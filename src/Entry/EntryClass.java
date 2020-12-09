@@ -62,7 +62,7 @@ public class EntryClass {
 							empController.getAllEmployees();
 							break;
 						case 2:
-							empController.getEmployeeById();
+							empController.getEmployeeById(option);
 							break;
 						case 3:
 							System.out.println("Enter Employee Detail:");
@@ -72,7 +72,7 @@ public class EntryClass {
 							empController.updateEmployee();
 							break;
 						case 5:
-							empController.deactivateEmployee();
+							empController.deactivateEmployee(option);
 							break;
 						case 6:
 							empController.DeleteEmployee();
@@ -152,7 +152,7 @@ public class EntryClass {
 							skillController.updateSkill();
 							break;
 						case 5:
-							skillController.deactivateSkill();
+							skillController.deactivateSkill(option);
 							break;
 						case 6:
 							skillController.DeleteSkill();
@@ -198,7 +198,7 @@ public class EntryClass {
 							jobController.updateJob();
 							break;
 						case 5:
-							jobController.deactivateJob();
+							jobController.deactivateJob(option);
 							break;
 						case 6:
 							jobController.DeleteJob();

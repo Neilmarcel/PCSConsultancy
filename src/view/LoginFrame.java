@@ -16,7 +16,6 @@ public class LoginFrame extends JFrame{
 	JTextField tUserId;
 	JPasswordField tPassword;
 	JButton bLogin, bRegister;
-	JCheckBox cShowPassword;
 	EmployeeController empController=null;
 	public LoginFrame() throws ClassNotFoundException, SQLException {
 		container=getContentPane();
@@ -37,33 +36,33 @@ public class LoginFrame extends JFrame{
 				userId=tUserId.getText();
 				password=new String(tPassword.getPassword());
 				emp=empController.checkLogin(userId, password);
-				if(emp==null) {
-					lMessage.setText("You are not authorized user! Retry or Register!");
+				if(emp.getUserId()==null || emp.getPassword()==null) {
+					JFrame f=new JFrame();
+					JOptionPane.showMessageDialog(f,"You are not authorized user! Retry or Register!");
 				}
 				else {
-						if(emp.getRole().equals("HRA"))
-						{
+					if(emp.getActive().equals("Active")) {
+						if(emp.getRole().equals("HRA")) {
 							try {
 								new HRAHome();
-							} catch (ClassNotFoundException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							} catch (SQLException e) {
+							} catch (ClassNotFoundException | SQLException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 						}
-						else if(emp.getRole().equals("EMP"))
-						{
-							new EMPHome(emp);
-						}
-						else 
-						{
+						else if(emp.getRole().equals("PME")) {
 							new PMEHome();
 						}
+						else {
+							new EMPHome(emp);
+						}
+					}
+					else {
+						JFrame f=new JFrame();
+						JOptionPane.showMessageDialog(f,"User not activated !...");
 					}
 				}	
-			
+			}
 		});
 		bRegister=new JButton("REGISTER");
 		//Event handling for Register button
@@ -84,21 +83,19 @@ public class LoginFrame extends JFrame{
 			}
 			
 		});
-		cShowPassword=new JCheckBox("Show Password");
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
 		this.setTitle("PCSC User Login");
 		this.setVisible(true);
 		this.setBounds(10,10,500,600);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
 	public void setLayoutManager() {
 		container.setLayout(null);
 	}
 	public void setLocationAndSize() {
-		lMessage.setBounds(50, 80, 300, 30);
 		lUserId.setBounds(50, 150, 100, 30);
 		lPassword.setBounds(50, 250, 100, 30);
 		tUserId.setBounds(200, 150, 150, 30);
@@ -113,7 +110,6 @@ public class LoginFrame extends JFrame{
 		container.add(tPassword);
 		container.add(bLogin);
 		container.add(bRegister);
-		container.add(lMessage);
 	}
 	
 }

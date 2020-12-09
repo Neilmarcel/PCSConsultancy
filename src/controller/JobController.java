@@ -91,18 +91,21 @@ public class JobController {
 			System.out.println(ex.getMessage());
 		}
 	}
-	public void deactivateJob() {
-		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			int id;
-			System.out.println("Enter JobId whose record you want to deactivate:");
-			id=Integer.parseInt(reader.readLine());
-			Job jb=JobDao.getJobById(id);
-			JobDao.deactivateJob(jb);
-		}
-		catch(IOException ex) {
-			System.out.println(ex.getMessage());
-		}
+	public void deactivateJob(int s) {
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//int id;
+		//System.out.println("Enter JobId whose record you want to deactivate:");
+		//id=Integer.parseInt(reader.readLine());
+		Job jb=JobDao.getJobById(s);
+		JobDao.deactivateJob(jb);
+	}
+	public void activateJob(int s) {
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//int id;
+		//System.out.println("Enter JobId whose record you want to activate:");
+		//id=Integer.parseInt(reader.readLine());
+		Job jb=JobDao.getJobById(s);
+		JobDao.activateJob(jb);
 	}
 	public void DeleteJob() {
 		try {

@@ -63,18 +63,15 @@ public class EmployeeController {
 		}
 		return allEmpList;
 	}
-	public void getEmployeeById() {
-		try {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			int id;
-			System.out.println("Enter EmployeeId whose record you want to access:");
-			id=Integer.parseInt(reader.readLine());
-			Employee emp=empDao.getEmployeeById(id);
-			System.out.println(emp);
-			}
-		catch(IOException ex) {
-			System.out.println(ex.getMessage());
-			}
+	public int e;
+	public void getEmployeeById(int s) {
+		//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		//int id;
+		//System.out.println("Enter EmployeeId whose record you want to access:");
+		//id=Integer.parseInt(reader.readLine());
+		e = s;
+		Employee emp=empDao.getEmployeeById(e);
+		System.out.println(emp);
 		}
 		public void updateEmployee() {
 			try {
@@ -101,18 +98,13 @@ public class EmployeeController {
 				System.out.println(ex.getMessage());
 			}
 		}
-		public void deactivateEmployee() {
-			try {
-				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-				int id;
-				System.out.println("Enter EmployeeId whose record you want to deactivate:");
-				id=Integer.parseInt(reader.readLine());
-				Employee emp=empDao.getEmployeeById(id);
-				empDao.deactivateEmployee(emp);
-			}
-			catch(IOException ex) {
-				System.out.println(ex.getMessage());
-			}
+		public void deactivateEmployee(int s) {
+			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			//int id;
+			//System.out.println("Enter EmployeeId whose record you want to deactivate:");
+			//id=Integer.parseInt(reader.readLine());
+			Employee emp=empDao.getEmployeeById(s);
+			empDao.deactivateEmployee(emp);
 		}
 		public void activateEmployee(int s) {
 			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));

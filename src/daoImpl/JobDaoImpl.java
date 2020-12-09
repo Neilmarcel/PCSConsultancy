@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import config.JDBCConnection;
 import dao.IJobDao;
 import model.Job;
@@ -126,11 +129,37 @@ public class JobDaoImpl implements IJobDao{
 			pst.setString(1, "Deactive");
 			pst.setInt(2, jb.getJobId());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("Job deactivated...");
+				//System.out.println("Job deactivated...");
+				JOptionPane.showMessageDialog(f,"Job Deactivated...");
 			}
 			else {
-				System.out.println("updation failed...");
+				//System.out.println("Deactivation failed...");
+				JOptionPane.showMessageDialog(f,"Deactivation failed...");
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+	}
+	@Override
+	public void activateJob(Job jb) {
+		try {
+			//creating PreparedStatement object by passing query string
+			PreparedStatement pst=conn.prepareStatement("update Employee set Activate=? where JobId=? ");
+			pst.setString(1, "Active");
+			pst.setInt(2, jb.getJobId());
+			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
+			if(i==1){
+				//System.out.println("Job activated...");
+				JOptionPane.showMessageDialog(f,"Job Activated...");
+			}
+			else {
+				//System.out.println("Activation failed...");
+				JOptionPane.showMessageDialog(f,"Activation failed...");
 			}
 		}
 		catch(SQLException ex) {

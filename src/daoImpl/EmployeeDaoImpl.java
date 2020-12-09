@@ -154,11 +154,14 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 			pst.setString(1, "Deactive");
 			pst.setInt(2, emp.getEmpId());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("Employee deactivated...");
+				//System.out.println("Employee deactivated...");
+				JOptionPane.showMessageDialog(f,"Employee Dectivated...");
 			}
 			else {
-				System.out.println("updation failed...");
+				//System.out.println("updation failed...");
+				JOptionPane.showMessageDialog(f,"Dectivation failed...");
 			}
 		}
 		catch(SQLException ex) {
