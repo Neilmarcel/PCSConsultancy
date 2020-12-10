@@ -69,7 +69,6 @@ public class EmployeeController {
 		//int id;
 		//System.out.println("Enter EmployeeId whose record you want to access:");
 		//id=Integer.parseInt(reader.readLine());
-		e = s;
 		Employee emp=empDao.getEmployeeById(e);
 		System.out.println(emp);
 		}

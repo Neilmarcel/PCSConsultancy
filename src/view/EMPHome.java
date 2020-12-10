@@ -33,7 +33,7 @@ public class EMPHome extends JFrame{
 				
 			}	
 		});
-		bUpdateSkill=new JButton("Update Skill");
+		bUpdateSkill=new JButton("Add Skill");
 		bUpdateSkill.addActionListener(new ActionListener(){
 
 			@Override

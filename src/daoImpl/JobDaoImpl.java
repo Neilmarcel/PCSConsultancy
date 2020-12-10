@@ -3,10 +3,8 @@ package daoImpl;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import config.JDBCConnection;
 import dao.IJobDao;
 import model.Job;
@@ -125,7 +123,7 @@ public class JobDaoImpl implements IJobDao{
 	public void deactivateJob(Job jb) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Activate=? where JobId=? ");
+			PreparedStatement pst=conn.prepareStatement("update Job set Activate=? where JobId=? ");
 			pst.setString(1, "Deactive");
 			pst.setInt(2, jb.getJobId());
 			int i=pst.executeUpdate();
@@ -148,7 +146,7 @@ public class JobDaoImpl implements IJobDao{
 	public void activateJob(Job jb) {
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("update Employee set Activate=? where JobId=? ");
+			PreparedStatement pst=conn.prepareStatement("update Job set Activate=? where JobId=? ");
 			pst.setString(1, "Active");
 			pst.setInt(2, jb.getJobId());
 			int i=pst.executeUpdate();

@@ -24,15 +24,14 @@ public class EmpbyIdFrame extends JFrame{
 		tEmployeeId=new JTextField();
 		bSubmit=new JButton("SUBMIT");
 		empController=new EmployeeController();
-		int s;
-		s=Integer.parseInt(tEmployeeId.getText());
 		bSubmit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//pController.getEmployeeById(s);
+				int s;
+				s=Integer.parseInt(tEmployeeId.getText());
 				try {
-					new SelectedEmpDataFrame();
+					new SelectedEmpDataFrame(s);
 				} catch (ClassNotFoundException | SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -55,7 +54,7 @@ public class EmpbyIdFrame extends JFrame{
 	}
 	private void setLocationAndSize() {
 		lEmployeeId.setBounds(30, 150, 250, 30);
-		tEmployeeId.setBounds(200, 150, 150, 30);
+		tEmployeeId.setBounds(200, 150, 200, 30);
 		bSubmit.setBounds(200, 250, 100, 30);
 	}
 

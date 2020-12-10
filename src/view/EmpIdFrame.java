@@ -1,43 +1,51 @@
 package view;
 
-import java.awt.*;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import javax.swing.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 import controller.EmployeeController;
 
-public class DeactivateEmpFrame extends JFrame{
-
+public class EmpIdFrame extends JFrame{
 	Container container;
 	JFrame f;
 	JLabel lEmployeeId;
 	JTextField tEmployeeId;
-	JButton bDeactivate;
+	JButton bSubmit;
 	EmployeeController empController=null;
 	
-	public DeactivateEmpFrame() throws ClassNotFoundException, SQLException{
+	public EmpIdFrame() throws ClassNotFoundException, SQLException{
 		container=getContentPane();
 		f=new JFrame();
 		lEmployeeId=new JLabel("ENTER EMPLOYEE ID");
 		tEmployeeId=new JTextField();
-		bDeactivate=new JButton("DEACTIVATE");
+		bSubmit=new JButton("SUBMIT");
 		empController=new EmployeeController();
-		
-		bDeactivate.addActionListener(new ActionListener() {
+		bSubmit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int s;
 				s=Integer.parseInt(tEmployeeId.getText());
-				empController.deactivateEmployee(s);
+				try {
+					new EmpProfileFrame(s);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 			
 		});
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
-		this.setTitle("Activate Employee");
+		this.setTitle("View Employee Profile");
 		this.setVisible(true);
 		this.setBounds(10,10,500,600);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,14 +56,15 @@ public class DeactivateEmpFrame extends JFrame{
 		
 	}
 	private void setLocationAndSize() {
-		lEmployeeId.setBounds(30, 150, 300, 30);
-		tEmployeeId.setBounds(300, 150, 200, 30);
-		bDeactivate.setBounds(200, 250, 200, 30);
+		lEmployeeId.setBounds(30, 150, 250, 30);
+		tEmployeeId.setBounds(200, 150, 200, 30);
+		bSubmit.setBounds(200, 250, 100, 30);
 	}
 
 	private void addComponentsToContainer() {
 		container.add(lEmployeeId);
 		container.add(tEmployeeId);
-		container.add(bDeactivate);
+		container.add(bSubmit);
 	}
+
 }

@@ -1,14 +1,11 @@
 package view;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.SQLException;
-import java.util.List;
 import javax.swing.*;
 import controller.EmployeeController;
 import controller.JobController;
 import controller.SkillController;
-import model.Employee;
 
 public class HRAHome extends JFrame {
 	Container container;
@@ -99,8 +96,12 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				try {
+					new AllSkillsFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		
@@ -136,8 +137,13 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				skillController.getAllSkills();
-				
+				//skillController.getAllJobs();
+				try {
+					new AllJobsFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		
@@ -173,7 +179,7 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}	
 		});
 		setLayoutManager();
