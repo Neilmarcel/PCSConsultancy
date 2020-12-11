@@ -6,13 +6,14 @@ import javax.swing.*;
 import controller.EmployeeController;
 import controller.JobController;
 import controller.SkillController;
+import view.LoginFrame;
 
 public class HRAHome extends JFrame {
 	Container container;
 	JLabel lTitle,lEmpId;
 	JTextField tEmpId,tdata;
 	JButton bSetActive,bSetDeactive,bViewJob,bViewAllEmp,bSetDeactiveJob,bViewSelectiveEmp,bSetActiveJob,bViewSkill,bSetDeactiveSkill,bSetActiveSkill,bLogout;
-	JFrame f;
+	JFrame f=new JFrame();
 	EmployeeController empController=null;
 	JobController jobController=null;
 	SkillController skillController=null;
@@ -179,8 +180,8 @@ public class HRAHome extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-			}	
+					Logout();
+			}
 		});
 		setLayoutManager();
 		setLocationAndSize();
@@ -191,7 +192,9 @@ public class HRAHome extends JFrame {
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
-
+	public void Logout(){
+		this.dispose();
+	}
 	public void addComponentsToContainer() {
 		container.setLayout(null);
 		

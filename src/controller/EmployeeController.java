@@ -5,6 +5,9 @@ import java.sql.*;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import dao.IEmployeeDao;
 import daoImpl.EmployeeDaoImpl;
 import model.Employee;
@@ -72,30 +75,27 @@ public class EmployeeController {
 		Employee emp=empDao.getEmployeeById(e);
 		System.out.println(emp);
 		}
-		public void updateEmployee() {
-			try {
-				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-				int id;
-				String password, confirmpassword;
-				System.out.println("Enter EmployeeId whose record you want to update:");
-				id=Integer.parseInt(reader.readLine());
-				Employee emp=empDao.getEmployeeById(id);
-				System.out.println("Enter your new password:");
-				password=reader.readLine();
-				System.out.println("re-enter same password to confirm:");
-				confirmpassword=reader.readLine();
-				if(password.contentEquals(confirmpassword)) {
-					emp.setPassword(password);
-					empDao.updateEmployee(emp);
-				}
-				else {
-					System.out.println("Sorry! you have entered different password");
-				}
-				System.out.println(emp);
+		public void updateEmployee(int s1, String s2, String s3) {
+			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			//int id;
+			//String password, confirmpassword;
+			//System.out.println("Enter EmployeeId whose record you want to update:");
+			//id=Integer.parseInt(reader.readLine());
+			Employee emp=empDao.getEmployeeById(s1);
+			//System.out.println("Enter your new password:");
+			//password=reader.readLine();
+			//System.out.println("re-enter same password to confirm:");
+			//confirmpassword=reader.readLine();
+			JFrame f = new JFrame();
+			if(s2.contentEquals(s3)) {
+				emp.setPassword(s2);
+				empDao.updateEmployee(emp);
 			}
-			catch(IOException ex) {
-				System.out.println(ex.getMessage());
+			else {
+				//System.out.println("Sorry! you have entered different password");
+				JOptionPane.showMessageDialog(f,"Sorry! wrong password");
 			}
+			System.out.println(emp);
 		}
 		public void deactivateEmployee(int s) {
 			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
@@ -125,12 +125,14 @@ public class EmployeeController {
 				System.out.println(ex.getMessage());
 			}
 		}
-		public void addEmpSkill() {
+		public void addEmpSkill(int s1, int s2, int s3) {
 			EmpSkill esk=new EmpSkill();
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-			Scanner sc=new Scanner(System.in);
-			System.out.println("Enter year of Expiry:");
-			esk.setExpYear(sc.nextInt());
+			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			//Scanner sc=new Scanner(System.in);
+			//System.out.println("Enter year of Expiry:");
+			esk.setEmployeeId(s1);
+			esk.setSkillId(s2);
+			esk.setExpYear(s3);
 			empskillDao.addEmpSkill(esk);
 		}
 		public void getAllEmpSkills() {
@@ -184,17 +186,14 @@ public class EmployeeController {
 				System.out.println(ex.getMessage());
 			}
 		}
-		public void addEmpJob() {
+		public void addEmpJob(int s1, int s2, String s3) {
 			EmpJob ejb=new EmpJob();
-			try {
-				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
-				System.out.println("Enter whether recruited or not :");
-				ejb.setRecruited(reader.readLine());
-				empjobDao.addEmpJob(ejb);
-			}
-			catch(IOException ex){
-				System.out.println(ex.getMessage());
-			}
+			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			//System.out.println("Enter whether recruited or not :");
+			ejb.setEmpId(s1);
+			ejb.setJobId(s2);
+			ejb.setRecruited(s3);
+			empjobDao.addEmpJob(ejb);
 		}
 public void getAllEmpJobs() {
 			

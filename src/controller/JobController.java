@@ -33,7 +33,7 @@ public class JobController {
 		//System.out.println("Enter Key skill:");
 		//jb.setKeySkill(reader.readLine());
 		jb.setKeySkill(s5);
-		System.out.println("Enter Salary:");
+		//System.out.println("Enter Salary:");
 		//jb.setSalary(reader.readLine());
 		jb.setSalary(s6);
 		if(s1.equals("HR")) {

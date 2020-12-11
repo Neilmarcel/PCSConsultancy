@@ -3,13 +3,13 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.*;
 
 import model.Employee;
 
 public class EMPHome extends JFrame{
-
 	Container container=null;
 	JLabel lTitle;
 	JButton bViewProfile,bUpdateProfile,bUpdateSkill,bApplyJob,bLogout;
@@ -21,7 +21,13 @@ public class EMPHome extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					int s=emp.getEmpId();
+					new EmpProfileFrame(s);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 
 		});
@@ -30,7 +36,12 @@ public class EMPHome extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					new ChangePasswordFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		bUpdateSkill=new JButton("Add Skill");
@@ -38,8 +49,12 @@ public class EMPHome extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				try {
+					new AddEmpSkillFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		bApplyJob=new JButton("Apply Job");
@@ -47,8 +62,12 @@ public class EMPHome extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				try {
+					new ApplyJobFrame();
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}	
 		});
 		bLogout=new JButton("Sign out");
@@ -56,8 +75,7 @@ public class EMPHome extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				Logout();
 			}	
 		});
 		
@@ -66,9 +84,12 @@ public class EMPHome extends JFrame{
 		addComponentsToContainer();
 		this.setTitle("EMP Home Screen");
 		this.setVisible(true);
-		this.setBounds(10,10,500,1600);
+		this.setBounds(10,10,500,600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
+	}
+	public void Logout(){
+		this.dispose();
 	}
 	public void setLayoutManager() {
 		container.setLayout(null);

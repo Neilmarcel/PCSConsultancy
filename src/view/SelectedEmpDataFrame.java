@@ -28,6 +28,7 @@ public class SelectedEmpDataFrame extends JFrame {
 		PreparedStatement pst=conn.prepareStatement("select * from Employee where EmployeeId=?");
 		pst.setInt(1,s);
 		ResultSet rst=pst.executeQuery();
+		model.addRow(new String[]{"EmployeeId", "FirstName", "LastName", "Role","Gender", "Active"});
 		while(rst.next())
 		{
 		    int a = rst.getInt("EmployeeId");

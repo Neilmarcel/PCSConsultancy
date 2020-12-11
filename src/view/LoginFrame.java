@@ -88,7 +88,7 @@ public class LoginFrame extends JFrame{
 		addComponentsToContainer();
 		this.setTitle("PCSC User Login");
 		this.setVisible(true);
-		this.setBounds(10,10,500,600);
+		this.setBounds(10,10,500,400);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
@@ -96,12 +96,12 @@ public class LoginFrame extends JFrame{
 		container.setLayout(null);
 	}
 	public void setLocationAndSize() {
-		lUserId.setBounds(50, 150, 100, 30);
-		lPassword.setBounds(50, 250, 100, 30);
-		tUserId.setBounds(200, 150, 150, 30);
-		tPassword.setBounds(200, 250, 150, 30);
-		bLogin.setBounds(100, 350, 100, 30);
-		bRegister.setBounds(250, 350, 100, 30);
+		lUserId.setBounds(50, 50, 100, 30);
+		lPassword.setBounds(50, 100, 100, 30);
+		tUserId.setBounds(200, 50, 150, 30);
+		tPassword.setBounds(200, 100, 150, 30);
+		bLogin.setBounds(100, 250, 100, 30);
+		bRegister.setBounds(250, 250, 100, 30);
 	}
 	public void addComponentsToContainer() {
 		container.add(lUserId);

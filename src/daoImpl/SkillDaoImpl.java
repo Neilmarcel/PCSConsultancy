@@ -51,11 +51,14 @@ public class SkillDaoImpl implements ISkillDao{
 			pst.setString(2, ski.getSkillDescription());
 			pst.setString(3, ski.getActive());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				//System.out.println("1 record inserted...");
+				JOptionPane.showMessageDialog(f,"Skill Added...");
 			}
 			else {
-				System.out.println("insertion failed...");
+				//System.out.println("insertion failed...");
+				JOptionPane.showMessageDialog(f,"Insertion failed...");
 			}
 		}
 		catch(SQLException ex) {

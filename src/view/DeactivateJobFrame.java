@@ -37,9 +37,9 @@ public class DeactivateJobFrame extends JFrame{
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
-		this.setTitle("Deactivate Skill");
+		this.setTitle("Deactivate Job");
 		this.setVisible(true);
-		this.setBounds(10,10,500,600);
+		this.setBounds(10,10,500,350);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 	}
@@ -50,9 +50,9 @@ public class DeactivateJobFrame extends JFrame{
 		
 	}
 	private void setLocationAndSize() {
-		lJobId.setBounds(30, 150, 300, 30);
-		tJobId.setBounds(200, 150, 150, 30);
-		bDeactivate.setBounds(200, 250, 100, 30);
+		lJobId.setBounds(30, 50, 300, 30);
+		tJobId.setBounds(200,50, 150, 30);
+		bDeactivate.setBounds(200, 200, 200, 30);
 	}
 
 	private void addComponentsToContainer() {

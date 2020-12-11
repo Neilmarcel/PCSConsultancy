@@ -57,8 +57,10 @@ public class JobDaoImpl implements IJobDao{
 			pst.setString(6, jb.getSalary());
 			pst.setString(7, jb.getActivate());
 			int i=pst.executeUpdate();
+			JFrame f=new JFrame();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				//System.out.println("1 record inserted...");
+				JOptionPane.showMessageDialog(f,"Job Added");
 			}
 			else {
 				System.out.println("insertion failed...");

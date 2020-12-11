@@ -18,6 +18,7 @@ public class AllEmployeesFrame extends JFrame {
 		JTable table=new JTable();
 		DefaultTableModel model = new DefaultTableModel(new String[]{"EmployeeId", "FirstName", "LastName", "Role","Gender", "Active"}, 0);
 		ResultSet rst=stmt.executeQuery("select * from Employee");
+		model.addRow(new String[]{"EmployeeId", "FirstName", "LastName", "Role","Gender", "Active"});
 		while(rst.next())
 		{
 		    int a = rst.getInt("EmployeeId");

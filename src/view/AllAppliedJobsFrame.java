@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Component;
 import java.awt.Container;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,30 +7,28 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import config.JDBCConnection;
 
-public class AllSkillsFrame extends JFrame{
+public class AllAppliedJobsFrame extends JFrame {
 	JFrame frame;
 	Container container;
-	public AllSkillsFrame() throws ClassNotFoundException, SQLException {
+	public AllAppliedJobsFrame() throws ClassNotFoundException, SQLException {
 		Connection conn=JDBCConnection.getDBConnection();
 		Statement stmt=conn.createStatement();
 		frame=new JFrame();   
 		JTable table=new JTable();
-		DefaultTableModel model = new DefaultTableModel(new String[]{"SkillId", "SkillName", "SkillDescription", "Active"}, 0);
-		ResultSet rst=stmt.executeQuery("select * from Skill");
-		model.addRow(new String[]{"SkillId", "SkillName", "SkillDescription", "Active"});
+		DefaultTableModel model = new DefaultTableModel(new String[]{"EJId","EmployeeId", "JobId", "Recruited"}, 0);
+		ResultSet rst=stmt.executeQuery("select * from EmpJob");
+		model.addRow(new Object[] {"EJId","EmployeeId", "JobId", "Recruited"});
 		while(rst.next())
 		{
-		    int a = rst.getInt("SkillId");
-		    String b = rst.getString("SkillName");
-		    String c = rst.getString("SkillDescription");
-		    String d = rst.getString("Active");
+		    int a = rst.getInt("EJId");
+		    int b = rst.getInt("EmployeeId");
+		    int c = rst.getInt("JobId");
+		    String d = rst.getString("Recruited");
 		    model.addRow(new Object[]{a,b,c,d});
 		    table.setModel(model);
 		    container=getContentPane();
@@ -42,7 +39,8 @@ public class AllSkillsFrame extends JFrame{
 		    table.setBounds(10,10,800,900);
 		    this.setVisible(true);
 		    this.setBounds(10,10,800,900);
-		    this.setTitle("Skill Data");
+		    this.setResizable(false);
+		    this.setTitle("Applied Job Infomation");
 		}
 
 	}

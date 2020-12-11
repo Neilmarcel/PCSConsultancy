@@ -3,6 +3,10 @@ package daoImpl;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import config.JDBCConnection;
 import dao.IEmpSkillDao;
 import model.EmpSkill;
@@ -47,11 +51,14 @@ public class EmpSkillDaoImpl implements IEmpSkillDao{
 			pst.setInt(2,esk.getSkillId());
 			pst.setInt(3, esk.getExpYear());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				//System.out.println("1 record inserted...");
+				JOptionPane.showMessageDialog(f,"Employee Skill Added...");
 			}
 			else {
-				System.out.println("insertion failed...");
+				//System.out.println("insertion failed...");
+				JOptionPane.showMessageDialog(f,"Insertion Failed...");
 			}
 		}
 		catch(SQLException ex) {

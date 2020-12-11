@@ -3,6 +3,10 @@ package daoImpl;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import config.JDBCConnection;
 import dao.IEmpJobDao;
 import model.EmpJob;
@@ -42,14 +46,19 @@ public class EmpJobDaoImpl implements IEmpJobDao{
 	public void addEmpJob(EmpJob esk){
 		try {
 			//creating PreparedStatement object by passing query string
-			PreparedStatement pst=conn.prepareStatement("insert into EmpJob(Recruited) values(?)");
-			pst.setString(1, esk.getRecruited());
+			PreparedStatement pst=conn.prepareStatement("insert into EmpJob(EmployeeId,JobId,Recruited) values(?,?,?)");
+			pst.setInt(1,esk.getEmpId());
+			pst.setInt(2,esk.getJobId());
+			pst.setString(3, esk.getRecruited());
 			int i=pst.executeUpdate();
+			JFrame f=new JFrame();
 			if(i==1){
-				System.out.println("1 record inserted...");
+				//System.out.println("1 record inserted...");
+				JOptionPane.showMessageDialog(f,"Application Received");
 			}
 			else {
-				System.out.println("insertion failed...");
+				//System.out.println("insertion failed...");
+				JOptionPane.showMessageDialog(f,"Action Failed");
 			}
 		}
 		catch(SQLException ex) {

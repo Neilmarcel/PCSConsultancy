@@ -17,8 +17,8 @@ public class AddSkillFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	Container container;
-	JLabel lSkillname,lSkilldescrip;
-	JTextField tSkillname,tSkilldescrip;
+	JLabel lSkillname,lSkilldescription;
+	JTextField tSkillname,tSkilldescripion;
 	JButton bSubmit;
 	SkillController skillController=null;
 	JFrame f;
@@ -26,9 +26,9 @@ public class AddSkillFrame extends JFrame{
 		container=getContentPane();
 		skillController=new SkillController();
 		lSkillname=new JLabel("Skill Name");
-		lSkilldescrip=new JLabel("Skill Description");
+		lSkilldescription=new JLabel("Skill Description");
 		tSkillname=new JTextField();
-		tSkilldescrip=new JTextField();
+		tSkilldescripion=new JTextField();
 		
 		bSubmit=new JButton("SUBMIT");
 		//Event handling for Register button
@@ -38,7 +38,7 @@ public class AddSkillFrame extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				String s1,s2;
 				s1=tSkillname.getText();
-				s2=tSkilldescrip.getText();
+				s2=tSkilldescripion.getText();
 				try {
 					skillController.addSkill(s1, s2);
 				} catch (IOException e) {
@@ -71,10 +71,10 @@ public class AddSkillFrame extends JFrame{
 
 	public void setLocationAndSize() {
 		lSkillname.setBounds(50, 150, 100, 30);
-		lSkilldescrip.setBounds(50, 250, 100, 30);
+		lSkilldescription.setBounds(50, 250, 100, 30);
 		
 		tSkillname.setBounds(200, 150, 150, 30);
-		tSkilldescrip.setBounds(200, 250, 150, 30);
+		tSkilldescripion.setBounds(200, 250, 150, 30);
 		
 		bSubmit.setBounds(100, 450, 100, 30);
 	}
@@ -82,8 +82,8 @@ public class AddSkillFrame extends JFrame{
 	public void addComponentsToContainer() {
 		container.add(lSkillname);
 		container.add(tSkillname);
-		container.add(tSkilldescrip);
-		container.add(lSkilldescrip);
+		container.add(tSkilldescripion);
+		container.add(lSkilldescription);
 		container.add(bSubmit);
 		
 	}

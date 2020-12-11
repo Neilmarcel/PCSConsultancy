@@ -37,12 +37,11 @@ public class EmpbyIdFrame extends JFrame{
 					e1.printStackTrace();
 				}
 			}
-			
 		});
 		setLayoutManager();
 		setLocationAndSize();
 		addComponentsToContainer();
-		this.setTitle("View Employee");
+		this.setTitle("View Your Profile");
 		this.setVisible(true);
 		this.setBounds(10,10,500,600);
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

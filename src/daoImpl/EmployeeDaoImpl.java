@@ -132,11 +132,14 @@ public class EmployeeDaoImpl implements IEmployeeDao{
 			pst.setString(1, emp.getPassword());
 			pst.setInt(2, emp.getEmpId());
 			int i=pst.executeUpdate();
+			JFrame f = new JFrame();
 			if(i==1){
-				System.out.println("1 record updated...");
+				//System.out.println("1 record updated...");
+				JOptionPane.showMessageDialog(f,"Password changed");
 			}
 			else {
-				System.out.println("update failed...");
+				//System.out.println("update failed...");
+				JOptionPane.showMessageDialog(f,"update failed...");
 			}
 		}
 		catch(SQLException ex) {

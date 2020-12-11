@@ -54,5 +54,4 @@ Select * from EmpSkill;
 Select * from EmpJob
 
 
-
     

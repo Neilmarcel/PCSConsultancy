@@ -23,6 +23,7 @@ public class AllJobsFrame extends JFrame {
 		JTable table=new JTable();
 		DefaultTableModel model = new DefaultTableModel(new String[]{"JobId","JobTitle", "JobDescription", "CompanyName", "Location","KeySkill","Salary","Activate"}, 0);
 		ResultSet rst=stmt.executeQuery("select * from Job");
+		model.addRow(new Object[] {"JobId","JobTitle", "JobDescription", "CompanyName", "Location","KeySkill","Salary","Activate"});
 		while(rst.next())
 		{
 		    int a = rst.getInt("JobId");
@@ -33,6 +34,7 @@ public class AllJobsFrame extends JFrame {
 		    String f = rst.getString("KeySkill");
 		    String g = rst.getString("Salary");
 		    String h = rst.getString("Activate");
+
 		    model.addRow(new Object[]{a,b,c,d,e,f,g,h});
 		    table.setModel(model);
 		    container=getContentPane();
@@ -43,6 +45,7 @@ public class AllJobsFrame extends JFrame {
 		    table.setBounds(10,10,800,900);
 		    this.setVisible(true);
 		    this.setBounds(10,10,800,900);
+		    this.setResizable(false);
 		    this.setTitle("Job Data");
 		}
 
