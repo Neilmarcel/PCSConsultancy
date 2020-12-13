@@ -24,7 +24,6 @@ public class EntryClass {
 		//enter.testConnection();
 		String TableName;
 		Scanner s=new Scanner(System.in);
-		int choice;
 		char c='y';
 		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 		while(c=='y' || c=='Y') {
@@ -69,7 +68,7 @@ public class EntryClass {
 							empController.addEmployee(TableName, TableName, TableName, TableName, TableName, TableName);
 							break;
 						case 4:
-							empController.updateEmployee();
+							empController.updateEmployee(option, TableName, TableName);
 							break;
 						case 5:
 							empController.deactivateEmployee(option);
@@ -86,7 +85,7 @@ public class EntryClass {
 							break;
 						case 9:
 							System.out.println("Enter Employee Skill Detail:");
-							empController.addEmpSkill();
+							empController.addEmpSkill(option, option, option);
 							break;
 						case 10:
 							empController.updateEmpSkill();
@@ -103,7 +102,7 @@ public class EntryClass {
 							break;
 						case 14:
 							System.out.println("Enter EmpJob Detail:");
-							empController.addEmpJob();
+							empController.addEmpJob(option, option, TableName);
 							break;
 						case 15:
 							empController.updateEmpJob();

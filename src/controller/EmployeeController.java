@@ -76,7 +76,7 @@ public class EmployeeController {
 		System.out.println(emp);
 		}
 		public void updateEmployee(int s1, String s2, String s3) {
-			BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+			//BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 			//int id;
 			//String password, confirmpassword;
 			//System.out.println("Enter EmployeeId whose record you want to update:");
