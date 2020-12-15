@@ -41,7 +41,7 @@ public class ApplyJobFrame extends JFrame{
 				s3=tRecruited.getText();
 				s1=Integer.parseInt(tEmployeeId.getText());
 				s2=Integer.parseInt(tJobId.getText());
-				empController.addEmpJob(s1, s2,s3);
+				empController.addEmpJob(s1, s2, s3);
 			}
 			
 		});
